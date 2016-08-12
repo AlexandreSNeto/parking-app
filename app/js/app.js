@@ -1,10 +1,10 @@
-var mongolarApp = angular.module('mongolarApp', [
+var app = angular.module('app', [
   'ngRoute',
-  'mongolarControllers',
-  'mongolarServices'
+  'appControllers',
+  'appServices'
 ]);
 
-mongolarApp.config(['$routeProvider',
+app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/', {

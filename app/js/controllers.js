@@ -1,9 +1,26 @@
-var mongolarControllers = angular.module('mongolarControllers', []);
+var appControllers = angular.module('appControllers', []);
 
-mongolarControllers.controller('VeiculosCtrl', ['$scope', 'ListaVeiculos', function ($scope, ListaVeiculos) {
+appControllers.controller('VeiculosCtrl', ['$scope', 'ListaVeiculos', 'Veiculo',
+  function ($scope, ListaVeiculos, Veiculo) {
   ListaVeiculos.get({}, function (data) {
+    console.log(data);
       $scope.veiculos = data.rows;
-      console.log($scope.veiculos);
   });
-  //$scope.posts = [{title: 'title', content: 'conteudo', author: 'teste'}];
+
+  $scope.criarVeiculo = function () {
+    var carro = {
+      placa: "DDD0404",
+      marca: "Tesla",
+      modelo: "Model X",
+      cor: "Preto",
+      proprietario: {
+        nome: "Lucas Balensiefer",
+        ramal: "640",
+        celular: "(51) 9997-9997",
+        posicao: "4-370"
+      }
+    };
+
+    Veiculo.save({id: carro.placa}, carro);
+  };
 }]);
