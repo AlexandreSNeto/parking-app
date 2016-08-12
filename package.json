@@ -1,0 +1,16 @@
+{
+  "name": "Parking-CWI",
+  "version": "0.0.1",
+  "description": "Site para consultar os veículos da CWI",
+  "main": "app/index.html",
+  "scripts": {
+    "start": "npm run lite",
+    "lite": "lite-server"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^2.0.0",
+    "lite-server": "^2.2.0"
+  }
+}
