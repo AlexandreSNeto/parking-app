@@ -8,11 +8,13 @@
 `npm start`
 
 ## Executar Docker
-`docker run -it --name parking-app -v /parking-front/:/usr/share/nginx/html:ro -p 8080:80 nginx`
+`docker build -it parking-app .`
+`docker run -d --add-host="api:10.0.100.230" -p 8081:80 parking-app`
+
+## Desenvolvimento
+`docker run -it --rm -v C:/Renner/sources/github/parking-app:/usr/share/nginx/html --add-host="api:10.0.100.230" -p 8081:80 parking-app`
 
 # TODO:
-- Configurar proxy reverso no nginx para fazer o redirect para o parking-api
-- Criar um Dockerfile para executar a aplicação
 - Implementar chamadas aos serviços REST
 - Incluir GULP
     - Criar task para gerar imagem Docker
