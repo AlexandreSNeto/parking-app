@@ -3,10 +3,6 @@
 ## Instalar dependências
 `bower install`
 
-## Executar local
-`npm install`
-`npm start`
-
 ## Executar Docker
 `docker build -it parking-app .`
 `docker run -d --add-host="api:10.0.100.230" -p 8081:80 parking-app`
