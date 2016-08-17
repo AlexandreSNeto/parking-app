@@ -13,3 +13,10 @@ appServices.factory('Veiculo', ['$resource',
       save: {method:'PUT'}
     });
   }]);
+
+appServices.factory('ProcurarVeiculo', ['$resource',
+  function($resource){
+    return $resource('http://localhost:8080/api/veiculo/', {}, {
+      save: {method:'PUT'}
+    });
+  }]);

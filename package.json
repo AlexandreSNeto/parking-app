@@ -1,5 +1,5 @@
 {
-  "name": "Parking-CWI",
+  "name": "Parking",
   "version": "0.0.1",
   "description": "Site para consultar os veículos da CWI",
   "main": "app/index.html",
