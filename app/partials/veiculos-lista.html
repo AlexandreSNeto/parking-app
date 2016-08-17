@@ -20,17 +20,15 @@
   <thead>
     <tr>
       <th>Placa</th>
-      <th>Marca</th>
       <th>Modelo</th>
       <th>Cor</th>
       <th>Proprietário</th>
     </tr>
   </thead>
   <tr ng-repeat="veiculo in veiculos | filter:search">
-    <td>{{veiculo.doc.placa}}</td>
-    <td>{{veiculo.doc.marca}}</td>
-    <td>{{veiculo.doc.modelo}}</td>
-    <td>{{veiculo.doc.cor}}</td>
-    <td>{{veiculo.doc.proprietario.nome}}</td>
+    <td>{{veiculo.placa}}</td>
+    <td>{{veiculo.modelo}}</td>
+    <td>{{veiculo.cor}}</td>
+    <td>{{veiculo.proprietario.nome}}</td>
   </tr>
 </table>

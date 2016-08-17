@@ -1,7 +1,7 @@
 {
-  "name": "Parking",
+  "name": "parking-app",
   "version": "0.0.1",
-  "description": "Site para consultar os veículos da CWI",
+  "description": "Aplicação para exibição dos dados do parking-api",
   "main": "app/index.html",
   "moduleType": [
     "node"

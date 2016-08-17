@@ -1,13 +1,14 @@
 var appControllers = angular.module('appControllers', []);
 
-appControllers.controller('VeiculosCtrl', ['$scope', 'ListaVeiculos', 'Veiculo', 'ProcurarVeiculo',
-  function ($scope, ListaVeiculos, Veiculo, ProcurarVeiculo) {
-  ListaVeiculos.get({}, function (data) {
+appControllers.controller('VeiculosCtrl', ['$scope', 'ProcurarVeiculo', 'Veiculo', 'MeuVeiculo', 'Login',
+  function ($scope, ProcurarVeiculo, Veiculo, MeuVeiculo, Login) {
+
+  ProcurarVeiculo.get({}, function (data) {
     console.log(data);
-      $scope.veiculos = data.rows;
+      $scope.veiculos = data.content;
   });
 
-  ProcurarVeiculo.get({placa: 'i'}, function (data) {
+  MeuVeiculo.get({}, function (data) {
     console.log(data);
   });
 
