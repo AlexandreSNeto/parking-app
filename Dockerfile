@@ -1,8 +1,10 @@
 FROM nginx
 
 COPY docker/nginx.conf /etc/nginx/
-COPY docker/api.conf /etc/nginx/conf.d/
+COPY docker/default.conf /etc/nginx/conf.d/
 
 COPY app/ /usr/share/nginx/html
-COPY bower_components/ /usr/share/nginx/html
+COPY bower_components/ /usr/share/nginx/html/bower_components
 
+# use example
+# docker run -d --add-host="api:10.0.100.230" -p 8081:80 parking-app
