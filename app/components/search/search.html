@@ -1,0 +1,29 @@
+<form class="form-inline">
+  <div class="form-group">
+    <div class="input-group">
+      <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+      <input type="text" class="form-control" id="search" placeholder="Placa" ng-model="licensePlate">
+    </div>
+  </div>
+</form>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Placa</th>
+      <th>Modelo</th>
+      <th>Cor</th>
+      <th>Proprietário</th>
+      <th>Ramal</th>
+      <th>Celular</th>
+    </tr>
+  </thead>
+  <tr ng-repeat="veiculo in veiculos | filter:search">
+    <td>{{veiculo.placa}}</td>
+    <td>{{veiculo.modelo}}</td>
+    <td>{{veiculo.cor}}</td>
+    <td>{{veiculo.proprietario.nome}}</td>
+    <td>{{veiculo.proprietario.ramal}}</td>
+    <td>{{veiculo.proprietario.celular}}</td>
+  </tr>
+</table>
