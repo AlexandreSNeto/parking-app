@@ -13,6 +13,11 @@ appServices.factory('Auth', ['$resource',
     });
   }]);
 
+appServices.factory('MyVehicles', ['$resource',
+  function($resource){
+    return $resource('/api/veiculo/', {});
+  }]);
+
 appServices.factory('SearchVehicle', ['$resource',
   function($resource){
     return $resource('/api/veiculo/pesquisar', {});

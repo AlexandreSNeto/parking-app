@@ -1,1 +1,14 @@
-vehicle
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Placa</th>
+      <th>Modelo</th>
+      <th>Cor</th>
+    </tr>
+  </thead>
+  <tr ng-repeat="vehicle in vehicles">
+    <td>{{vehicle.placa}}</td>
+    <td>{{vehicle.modelo}}</td>
+    <td>{{vehicle.cor}}</td>
+  </tr>
+</table>
