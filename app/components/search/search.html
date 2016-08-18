@@ -18,11 +18,11 @@
       <th>Celular</th>
     </tr>
   </thead>
-  <tr ng-repeat="veiculo in veiculos | filter:search">
+  <tr ng-repeat="veiculo in veiculos">
     <td>{{veiculo.placa}}</td>
     <td>{{veiculo.modelo}}</td>
     <td>{{veiculo.cor}}</td>
-    <td>{{veiculo.proprietario.nome}}</td>
+    <td><img src="https://s.gravatar.com/avatar/{{veiculo.proprietario.gravatar}}?s20" width="20px" /> {{veiculo.proprietario.nome}}</td>
     <td>{{veiculo.proprietario.ramal}}</td>
     <td>{{veiculo.proprietario.celular}}</td>
   </tr>
