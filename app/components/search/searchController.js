@@ -1,7 +1,11 @@
-angular.module('appControllers').controller('SearchCtrl', ['$scope', 'SearchVehicle', 
-  function ($scope, SearchVehicle) {
+angular.module('appControllers').controller('SearchCtrl', ['$scope', '$rootScope', '$location', 'SearchVehicle', 
+  function ($scope, $rootScope,  $location, SearchVehicle) {
 
-  $scope.licensePlate = "i";
+  if (!$rootScope.authenticated) {
+    $location.path("/login");
+  }
+
+  $scope.licensePlate = "";
 
   $scope.$watch('licensePlate', function (value) {
     searchLicensePlate();
