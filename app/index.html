@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="/app/static/css/styles.css" media="screen" title="no title" charset="utf-8">
 
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
     <script src="/bower_components/angular/angular.min.js" charset="utf-8"></script>
     <script src="/bower_components/angular-route/angular-route.js"></script>
     <script src="/bower_components/angular-resource/angular-resource.js"></script>
 
     <script src="app.module.js"></script>
+    <script src="app.routes.js"></script>
     <script src="app.controllers.js"></script>
     <script src="app.services.js"></script>
     <script src="components/login/loginController.js"></script>
@@ -20,6 +22,35 @@
     <script src="components/vehicle/vehicleController.js"></script>
   </head>
   <body>
+
+    <nav ng-controller="LoginCtrl" class="navbar navbar-default" ng-show="authenticated">
+      <div class="container-fluid">
+        
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/">Parking App</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href=";" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{owner.nome}} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#/profile">Perfil</a></li>
+                <li><a href="#/vehicle">Veículos</a></li>
+              </ul>
+            </li>
+            <li><a href="#/logout">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
       <div ng-view class="container">
 
       </div>
