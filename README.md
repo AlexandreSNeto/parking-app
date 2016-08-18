@@ -4,11 +4,16 @@
 `bower install`
 
 ## Executar Docker
-`docker build -it parking-app .`
-`docker run -d --add-host="api:10.0.100.230" -p 8081:80 parking-app`
+`docker build -t parking-app .`
+
+`docker run -d --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 parking-app`
+
+or
+
+`docker run -d --link parking-api:api -p 8080:80 parking-app`
 
 ## Desenvolvimento
-`docker run -it --rm -v C:/Renner/sources/github/parking-app:/usr/share/nginx/html --add-host="api:10.0.100.230" -p 8081:80 parking-app`
+`docker run -it --rm -v path/to/parking-app:/usr/share/nginx/html --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 parking-app`
 
 # TODO:
 - Implementar chamadas aos serviços REST

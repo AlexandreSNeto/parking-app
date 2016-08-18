@@ -7,15 +7,15 @@ var app = angular.module('app', [
 app.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
+      when('/login', {
+        templateUrl: 'components/login/login.html',
+        controller: 'LoginCtrl'
+      }).
       when('/', {
-        templateUrl: 'partials/veiculos-lista.html',
+        templateUrl: 'components/vehicle/veiculos-lista.html',
         controller: 'VeiculosCtrl'
       }).
-      when('/veiculo/:placa', {
-        templateUrl: 'partials/veiculo-completo.html',
-        controller: 'VeiculoCtrl'
-      }).
       otherwise({
-        redirectTo: '/'
+        redirectTo: '/login'
       });
   }]);

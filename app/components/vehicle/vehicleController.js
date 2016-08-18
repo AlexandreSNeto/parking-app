@@ -1,6 +1,4 @@
-var appControllers = angular.module('appControllers', []);
-
-appControllers.controller('VeiculosCtrl', ['$scope', 'ProcurarVeiculo', 'Veiculo', 'MeuVeiculo', 'Login',
+angular.module('appControllers').controller('VeiculosCtrl', ['$scope', 'ProcurarVeiculo', 'Veiculo', 'MeuVeiculo', 'Login',
   function ($scope, ProcurarVeiculo, Veiculo, MeuVeiculo, Login) {
 
   ProcurarVeiculo.get({}, function (data) {

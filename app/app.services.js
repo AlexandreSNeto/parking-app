@@ -21,5 +21,12 @@ appServices.factory('MeuVeiculo', ['$resource',
 
 appServices.factory('Login', ['$resource',
   function($resource){
-    return $resource('/api/login', {});
+    return $resource('/api/login', {}, {
+      save:{
+          method: "POST",
+          headers : {"Content-Type": "application/x-www-form-urlencoded"} 
+      }
+    });
   }]);
+
+  
