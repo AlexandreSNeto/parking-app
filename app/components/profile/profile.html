@@ -1,0 +1,42 @@
+<div class="container">
+  <img src="{{owner.gravatar}}" />
+  <span>{{owner.usuario}}</span>
+  <span>Último Acesso em: {{owner.dataLogin | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+</div>
+
+
+<form class="form-horizontal" ng-submit="salvar()">
+
+  <div class="form-group">
+    <label for="name" class="col-sm-1 control-label">Nome</label>
+    <div class="col-sm-11">
+        <input type="text" class="form-control" id="name" ng-model="owner.nome" placeholder="Nome">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="andar" class="col-sm-1 control-label">Andar</label>
+    <div class="col-sm-5">
+        <input type="text" class="form-control" id="andar" ng-model="owner.andar" placeholder="Andar">
+    </div>
+    <label for="posicao" class="col-sm-1 control-label">Posição</label>
+    <div class="col-sm-5">
+        <input type="text" class="form-control" id="posicao" ng-model="owner.posicao" placeholder="Posição">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="ramal" class="col-sm-1 control-label">Ramal</label>
+    <div class="col-sm-5">
+        <input type="text" class="form-control" id="ramal" ng-model="owner.ramal" placeholder="Ramal">
+    </div>
+
+    <label for="celular" class="col-sm-1 control-label">Celular</label>
+    <div class="col-sm-5">
+        <input type="text" class="form-control" id="celular" ng-model="owner.celular" placeholder="Celular">
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Salvar</button>
+
+</form>
