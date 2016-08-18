@@ -1,13 +1,28 @@
-angular.module('appControllers').controller('LoginCtrl', ['$scope', 'Login', '$httpParamSerializer', '$location',
-  function ($scope, Login, $httpParamSerializer, $location) {
+angular.module('appControllers').controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', 'Owner', '$httpParamSerializer', '$location',
+  function ($scope, $rootScope, Auth, Owner, $httpParamSerializer, $location) {
+
+    $rootScope.authenticated = false;
 
     $scope.entrar = function () {
-      console.log('Autenticando usuario: ');
-      console.log($scope.auth);
-
-      Login.save($httpParamSerializer($scope.auth), function (data) {
-        $location.path('/');
+      Auth.login($httpParamSerializer($scope.auth), function (data) {        
+        Owner.get({}, function (data) {
+          $rootScope.authenticated = true;
+          
+          $rootScope.owner = data;
+          if ($rootScope.owner.nome) {
+            $location.path('/');
+          } else {
+            $location.path('/profile');
+          }
+        });       
       });
-    }
+    };
+
+    $scope.sair = function () {
+      $rootScope.authenticated = false;
+      Auth.logout({}, function (data) {
+        $location.path('/login');
+      });
+    };
     
 }]);
