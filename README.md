@@ -13,7 +13,9 @@ or
 `docker run -d --link parking-api:api -p 8080:80 parking-app`
 
 ## Desenvolvimento
-`docker run -it --rm -v path/to/parking-app:/usr/share/nginx/html --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 parking-app`
+`docker run -it --rm -v path/to/parking-app/docker:/etc/nginx/conf.d/ -v path/to/parking-app:/usr/share/nginx/html --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 nginx`
+
+
 
 # TODO:
 - Implementar chamadas aos serviços REST
