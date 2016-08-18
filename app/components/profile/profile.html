@@ -1,42 +1,63 @@
-<div class="container">
-  <img src="{{owner.gravatar}}" />
-  <span>{{owner.usuario}}</span>
-  <span>Último Acesso em: {{owner.dataLogin | date:'dd/MM/yyyy HH:mm:ss'}}</span>
+<div class="mensagem">
+    <p class="bg-success" ng-show="sucesso">
+        <span class="text-success">{{mensagem}}</span>
+    </p>
+    <p class="bg-danger" ng-show="erro">
+        <span class="text-danger">{{mensagem}}</span>
+    </p>
 </div>
 
-
-<form class="form-horizontal" ng-submit="salvar()">
-
-  <div class="form-group">
-    <label for="name" class="col-sm-1 control-label">Nome</label>
-    <div class="col-sm-11">
-        <input type="text" class="form-control" id="name" ng-model="owner.nome" placeholder="Nome">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1">
+            <img src="https://s.gravatar.com/avatar/{{owner.gravatar}}?s80" />
+        </div>
+        <div class="col-lg-11">
+            <span>{{owner.usuario}}</span>
+            <br />
+            <span>Criado em: {{owner.dataCriacao | date: 'dd/MM/yyyy HH:mm'}}</span>
+        </div>
     </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="andar" class="col-sm-1 control-label">Andar</label>
-    <div class="col-sm-5">
-        <input type="text" class="form-control" id="andar" ng-model="owner.andar" placeholder="Andar">
-    </div>
-    <label for="posicao" class="col-sm-1 control-label">Posição</label>
-    <div class="col-sm-5">
-        <input type="text" class="form-control" id="posicao" ng-model="owner.posicao" placeholder="Posição">
-    </div>
-  </div>
+</div>
 
-  <div class="form-group">
-    <label for="ramal" class="col-sm-1 control-label">Ramal</label>
-    <div class="col-sm-5">
-        <input type="text" class="form-control" id="ramal" ng-model="owner.ramal" placeholder="Ramal">
+<div class="container-fluid">
+    <div class="row">
+        <form class="form-horizontal" ng-submit="salvar()">
+            <div class="form-group">
+                <label for="name" class="col-sm-1 control-label">Nome</label>
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" id="name" ng-model="owner.nome" placeholder="Nome">
+                </div>
+
+                <label for="gravatar" class="col-sm-1 control-label">Gravatar</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" id="gravatar" ng-model="owner.gravatar" placeholder="Gravatar Hash">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="andar" class="col-sm-1 control-label">Andar</label>
+                <div class="col-sm-1">
+                    <input type="number" class="form-control" id="andar" ng-model="owner.andar" placeholder="Andar">
+                </div>
+
+                <label for="posicao" class="col-sm-1 control-label">Posição</label>
+                <div class="col-sm-1">
+                    <input type="text" class="form-control" id="posicao" ng-model="owner.posicao" placeholder="Posição">
+                </div>
+
+                <label for="ramal" class="col-sm-1 control-label">Ramal</label>
+                <div class="col-sm-1">
+                    <input type="number" class="form-control" id="ramal" ng-model="owner.ramal" placeholder="Ramal">
+                </div>
+
+                <label for="celular" class="col-sm-1 control-label">Celular</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" id="celular" ng-model="owner.celular" placeholder="Celular">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
     </div>
-
-    <label for="celular" class="col-sm-1 control-label">Celular</label>
-    <div class="col-sm-5">
-        <input type="text" class="form-control" id="celular" ng-model="owner.celular" placeholder="Celular">
-    </div>
-  </div>
-
-  <button type="submit" class="btn btn-primary">Salvar</button>
-
-</form>
+</div>
