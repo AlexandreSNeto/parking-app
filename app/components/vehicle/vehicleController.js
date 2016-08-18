@@ -1,8 +1,10 @@
-angular.module('appControllers').controller('VehicleCtrl', ['$scope', 'MyVehicles', 
-  function ($scope, MyVehicles) {
+angular.module('appControllers').controller('VehicleCtrl', ['$scope', 'Vehicle', 
+  function ($scope, Vehicle) {
   
-  MyVehicles.get({}, function (data) {
+  Vehicle.get({}, function (data) {
     $scope.vehicles = data.content;
   });
+
+  
 
 }]);

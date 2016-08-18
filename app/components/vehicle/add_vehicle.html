@@ -1,0 +1,26 @@
+{{vehicle}}
+
+<form class="form-horizontal" ng-submit="salvar()">
+    <div class="form-group">
+        <label for="placa" class="col-sm-1 control-label">Placa</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="placa" ng-model="vehicle.placa">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="modelo" class="col-sm-1 control-label">Modelo</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="modelo" ng-model="vehicle.modelo">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="cor" class="col-sm-1 control-label">Cor</label>
+        <div class="col-sm-3">
+            <input type="text" class="form-control" id="cor" ng-model="vehicle.cor">
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
