@@ -1,32 +1,24 @@
 var appServices = angular.module('appServices', ['ngResource']);
 
-appServices.factory('ProcurarVeiculo', ['$resource',
-  function($resource){
-    return $resource('/api/veiculo/pesquisar?placa=i', {}, {
-      query: {method:'GET', params:{}, isArray:true}
-    });
-  }]);
-
-appServices.factory('Veiculo', ['$resource',
-  function($resource){
-    return $resource('/api/veiculo/:id', {id: '@placa'}, {
-      save: {method:'PUT'}
-    });
-  }]);
-
-appServices.factory('MeuVeiculo', ['$resource',
-  function($resource){
-    return $resource('/api/veiculo', {}, {});
-  }]);
-
-appServices.factory('Login', ['$resource',
+appServices.factory('Auth', ['$resource',
   function($resource){
     return $resource('/api/login', {}, {
-      save:{
+      login:{
           method: "POST",
           headers : {"Content-Type": "application/x-www-form-urlencoded"} 
+      },
+      logout:{
+          method: "GET" 
       }
     });
   }]);
 
-  
+appServices.factory('SearchVehicle', ['$resource',
+  function($resource){
+    return $resource('/api/veiculo/pesquisar', {});
+  }]);
+
+appServices.factory('Owner', ['$resource',
+  function($resource){
+    return $resource('/api/proprietario', {});
+  }]);

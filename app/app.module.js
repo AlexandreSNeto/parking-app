@@ -12,8 +12,8 @@ app.config(['$routeProvider',
         controller: 'LoginCtrl'
       }).
       when('/', {
-        templateUrl: 'components/vehicle/veiculos-lista.html',
-        controller: 'VeiculosCtrl'
+        templateUrl: 'components/vehicle/search.html',
+        controller: 'SearchCtrl'
       }).
       otherwise({
         redirectTo: '/login'
