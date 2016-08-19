@@ -1,27 +1,26 @@
-angular.module('appControllers').controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', 'Owner', '$httpParamSerializer', '$location',
-  function ($scope, $rootScope, Auth, Owner, $httpParamSerializer, $location) {
+'use strict';
+angular.module('appControllers').controller('LoginCtrl', ['$scope', 'AuthLogin', 'Owner', '$httpParamSerializer', '$location', '$rootScope',
+  function ($scope, AuthLogin, Owner, $httpParamSerializer, $location, $rootScope) {
 
-    $rootScope.authenticated = false;
+    
 
     $scope.entrar = function () {
-      Auth.login($httpParamSerializer($scope.auth), function (data) {        
+      AuthLogin.login($httpParamSerializer($scope.auth), function (data) {        
         Owner.get({}, function (data) {
-          $rootScope.authenticated = true;
-          
-          $rootScope.owner = data;
-          if ($rootScope.owner.nome) {
-            $location.path('/');
-          } else {
+          $rootScope.user = {
+            id: data.id,
+            name: data.nome,
+            avatar: data.gravatar
+          };
+
+          if (!data.celular || !data.ramal) {
+            console.log('Proprietário sem dados, redirecionando para o perfil');
             $location.path('/profile');
+          } else {
+            console.log('Proprietário completo, redirecionando para home');
+            $location.path('/');
           }
         });       
-      });
-    };
-
-    $scope.sair = function () {
-      $rootScope.authenticated = false;
-      Auth.logout({}, function (data) {
-        $location.path('/login');
       });
     };
     
