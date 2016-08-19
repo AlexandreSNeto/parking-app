@@ -1,6 +1,15 @@
-{{vehicle}}
+<div class="mensagem">
+    <p class="bg-success" ng-show="sucesso">
+        <span class="glyphicon glyphicon-ok"></span>
+        <span class="text-success">{{mensagem}}</span>
+    </p>
+    <p class="bg-danger" ng-show="erro">
+        <span class="glyphicon glyphicon-exclamation-sign"></span>
+        <span class="text-danger">{{mensagem}}</span>
+    </p>
+</div>
 
-<form class="form-horizontal" ng-submit="salvar()">
+<form class="form-horizontal" ng-submit="save()">
     <div class="form-group">
         <label for="placa" class="col-sm-1 control-label">Placa</label>
         <div class="col-sm-3">
@@ -22,5 +31,6 @@
         </div>
     </div>
 
+    <button type="button" ng-click="cancel()" class="btn btn-default">Cancelar</button>
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
