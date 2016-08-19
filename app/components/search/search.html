@@ -24,6 +24,10 @@
     <td>{{veiculo.cor}}</td>
     <td><img src="https://s.gravatar.com/avatar/{{veiculo.proprietario.gravatar}}?s20" width="20px" /> {{veiculo.proprietario.nome}}</td>
     <td>{{veiculo.proprietario.ramal}}</td>
-    <td>{{veiculo.proprietario.celular}}</td>
+    <td>
+      {{veiculo.proprietario.celular}}
+      <a href="intent://send/55{{veiculo.proprietario.celular}}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end">WhatsApp</a>
+      <a href="sms:55{{veiculo.proprietario.celular}}?body=Favor retirar o seu carro no estacionamento">SMS</a>
+    </td>
   </tr>
 </table>
