@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('app').config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
@@ -5,6 +7,10 @@ angular.module('app').config(['$routeProvider',
         templateUrl: 'components/login/login.html',
         controller: 'LoginCtrl'
       }).
+      when('/logout', {
+        template: ' ',
+        controller: 'LogoutCtrl'
+      }).      
       when('/', {
         templateUrl: 'components/search/search.html',
         controller: 'SearchCtrl'
