@@ -7,7 +7,6 @@
   <title>Estacionamento - CWI Software</title>
   <link rel="icon" type="image/png" href="/app/static/images/favicon.ico" />
   <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
-  <!--<link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">-->
   <link rel="stylesheet" href="/app/static/css/styles.css" media="screen" title="no title" charset="utf-8">
 
   <script src="/bower_components/jquery/dist/jquery.js"></script>
@@ -15,16 +14,13 @@
   <script src="/bower_components/angular/angular.min.js" charset="utf-8"></script>
   <script src="/bower_components/angular-route/angular-route.js"></script>
   <script src="/bower_components/angular-resource/angular-resource.js"></script>
-  <!--
-  <script src="/bower_components/angular-aria/angular-aria.js"></script>
-  <script src="/bower_components/angular-animate/angular-animate.js"></script>
-  <script src="/bower_components/angular-material/angular-material.js"></script>
-  -->
+
   <script src="app.module.js"></script>
   <script src="app.routes.js"></script>
   <script src="app.controllers.js"></script>
   <script src="app.services.js"></script>
   <script src="components/login/loginController.js"></script>
+  <script src="components/login/logoutController.js"></script>
   <script src="components/search/searchController.js"></script>
   <script src="components/profile/profileController.js"></script>
   <script src="components/vehicle/vehicleController.js"></script>
@@ -33,12 +29,11 @@
 
 <body>
 
-  <nav ng-controller="LoginCtrl" class="navbar navbar-default" ng-show="authenticated">
+  <nav class="navbar navbar-default" ng-show="user.id !== undefined">
     <div class="container-fluid">
 
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-          aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -50,7 +45,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href=";" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{owner.nome}} <span class="caret"></span></a>
+            <a href=";" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}} <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#/profile">Perfil</a></li>
               <li><a href="#/vehicle">Veículos</a></li>
@@ -61,7 +56,9 @@
       </div>
     </div>
   </nav>
+
   <div ng-view class="container"></div>
+
 </body>
 
 </html>
