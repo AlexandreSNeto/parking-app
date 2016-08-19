@@ -1,20 +1,21 @@
-angular.module('appControllers').controller('SearchCtrl', ['$scope', '$rootScope', '$location', 'SearchVehicle', 
-  function ($scope, $rootScope,  $location, SearchVehicle) {
+'use strict';
+angular.module('appControllers').controller('SearchCtrl', ['$scope', 'SearchVehicle',
+  function ($scope, SearchVehicle) {
 
-  if (!$rootScope.authenticated) {
-    $location.path("/login");
-  }
+    $scope.licensePlate = "";
 
-  $scope.licensePlate = "";
-
-  $scope.$watch('licensePlate', function (value) {
-    searchLicensePlate();
-  });
-
-  var searchLicensePlate = function () {
-    SearchVehicle.get({placa: $scope.licensePlate}, function (data) {
-      $scope.veiculos = data.content;
+    $scope.$watch('licensePlate', function (value) {
+      if ($scope.licensePlate != '') {
+        searchLicensePlate();
+      } else {
+        $scope.veiculos = [];
+      }
     });
-  };
 
-}]);
+    var searchLicensePlate = function () {
+      SearchVehicle.get({placa: $scope.licensePlate}, function (data) {
+        $scope.veiculos = data.content;
+      });
+    };
+
+  }]);
