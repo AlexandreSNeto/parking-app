@@ -1,17 +1,25 @@
+'use strict';
 var appServices = angular.module('appServices', ['ngResource']);
 
-appServices.factory('Auth', ['$resource',
+appServices.factory('AuthLogin', ['$resource',
   function($resource){
     return $resource('/api/login', {}, {
       login:{
           method: "POST",
           headers : {"Content-Type": "application/x-www-form-urlencoded"} 
-      },
-      logout:{
-          method: "GET" 
       }
-    });
+    })
   }]);
+
+appServices.factory('AuthLogout', ['$resource',
+  function($resource){
+    return $resource('/api/logout', {}, {});
+  }]);  
+
+appServices.factory('AuthCheck', ['$resource',
+  function($resource){
+    return $resource('/api/logged-in', {}, {});
+  }]);    
 
 appServices.factory('Vehicle', ['$resource',
   function($resource){
