@@ -33,3 +33,8 @@ body {
 .mensagem p {
     padding: 15px;
 }
+
+/* Search */
+.search-table td.center, .search-table th.center {
+   text-align: center;   
+}
