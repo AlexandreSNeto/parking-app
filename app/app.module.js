@@ -4,7 +4,7 @@ var app = angular.module('app', [
   'appControllers',
   'appServices'
 ]).config(['$compileProvider', function ($compileProvider) {   
-        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|sms|intent):/);
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|tel|sms|intent):/);
     }
 ]);
 
