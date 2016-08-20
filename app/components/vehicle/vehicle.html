@@ -1,6 +1,42 @@
-<a href="#/vehicle/add" class="btn btn-default">
-  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar
-</a>
+<div ng-class="{'alert-success': success, 'alert-danger': fail}" class="alert" ng-show="success || fail">
+  <button type="button" class="close" ng-click="success = false; fail = false;"><i class="fa fa-times"></i></button>
+  <span class="fa" ng-class="{'fa-check': success, 'fa-exclamation-circle': fail}"></span>
+  {{message}}
+</div>
+
+<div class="panel panel-default" ng-show="showFormPanel">
+  <div class="panel-body">
+    <form class="form-horizontal" ng-submit="save()">
+      <div class="form-group">
+        <label for="placa" class="col-sm-1 control-label">Placa</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="placa" ng-model="vehicle.placa" ng-maxlength="7" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="modelo" class="col-sm-1 control-label">Modelo</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="modelo" ng-model="vehicle.modelo" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cor" class="col-sm-1 control-label">Cor</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="cor" ng-model="vehicle.cor" required>
+        </div>
+      </div>
+      <button type="button" ng-click="toggleForm()" class="btn btn-default">Cancelar</button>
+      <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+  </div>
+</div>
+
+<button type="button" class="btn btn-default" ng-click="toggleForm()" ng-hide="showFormPanel">
+  <span class="fa fa-plus-circle"></span> 
+  <span hide-in-mobile>Adicionar</span>
+</button>
 
 <table class="table table-striped table-hover">
   <thead>
@@ -8,11 +44,22 @@
       <th>Placa</th>
       <th>Modelo</th>
       <th>Cor</th>
+      <th>Ação</th>
     </tr>
   </thead>
   <tr ng-repeat="vehicle in vehicles">
     <td>{{vehicle.placa}}</td>
     <td>{{vehicle.modelo}}</td>
     <td>{{vehicle.cor}}</td>
+    <td>
+      <button type="button" class="btn btn-default" ng-click="edit(vehicle)">
+        <span class="fa fa-edit"></span> 
+        <span hide-in-mobile>Alterar</span>
+      </button>
+      <button type="button" class="btn btn-default" ng-click="remove(vehicle.id)">
+        <span class="fa fa-minus-circle"></span>
+        <span hide-in-mobile>Remover</span>
+      </button>
+    </td>
   </tr>
 </table>

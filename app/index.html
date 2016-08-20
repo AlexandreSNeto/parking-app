@@ -30,7 +30,6 @@
   <script src="components/search/searchController.js"></script>
   <script src="components/profile/profileController.js"></script>
   <script src="components/vehicle/vehicleController.js"></script>
-  <script src="components/vehicle/addVehicleController.js"></script>
 </head>
 
 <body>
@@ -45,18 +44,19 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="#/">Parking App</a>
+        <a class="navbar-brand" href="#/">
+          <img alt="Estacionamento CWI" src="static/images/logo_parking.png">
+        </a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><a href="#/">Buscar</a></li>
+          <li><a href="#/profile">Perfil</a></li>
+          <li><a href="#/vehicle">Veículos</a></li>
+        </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href=";" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.name}} <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#/profile">Perfil</a></li>
-              <li><a href="#/vehicle">Veículos</a></li>
-            </ul>
-          </li>
+          <li><p class="navbar-text">{{user.name}}</p></li>
           <li><a href="#/logout">Sair</a></li>
         </ul>
       </div>

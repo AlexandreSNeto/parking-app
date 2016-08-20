@@ -23,7 +23,7 @@ appServices.factory('AuthCheck', ['$resource',
 
 appServices.factory('Vehicle', ['$resource',
   function($resource){
-    return $resource('/api/veiculo/', {});
+    return $resource('/api/veiculo/:id', {id: '@id'});
   }]);
 
 appServices.factory('SearchVehicle', ['$resource',

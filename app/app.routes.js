@@ -23,10 +23,6 @@ angular.module('app').config(['$routeProvider',
         templateUrl: 'components/vehicle/vehicle.html',
         controller: 'VehicleCtrl'
       }).
-      when('/vehicle/add', {
-        templateUrl: 'components/vehicle/add_vehicle.html',
-        controller: 'AddVehicleCtrl'
-      }).
       otherwise({
         redirectTo: '/login'
       });
