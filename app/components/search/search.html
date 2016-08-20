@@ -2,32 +2,63 @@
   <div class="form-group">
     <div class="input-group">
       <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
-      <input type="text" class="form-control" id="search" placeholder="Placa" ng-model="licensePlate">
+      <input type="text" class="form-control" id="search" placeholder="Placa" ng-model="licensePlate" autofocus>
     </div>
   </div>
 </form>
 
-<table class="table table-striped table-hover">
+<table class="table table-striped table-hover search-table">
   <thead>
     <tr>
-      <th>Placa</th>
-      <th>Modelo</th>
-      <th>Cor</th>
-      <th>Proprietário</th>
-      <th>Ramal</th>
-      <th>Celular</th>
+      <th>Veículo</th>
+      <th class="center">Proprietário</th>
+      <th>Contato</th>
     </tr>
   </thead>
   <tr ng-repeat="veiculo in veiculos">
-    <td>{{veiculo.placa}}</td>
-    <td>{{veiculo.modelo}}</td>
-    <td>{{veiculo.cor}}</td>
-    <td><img src="https://s.gravatar.com/avatar/{{veiculo.proprietario.gravatar}}?s20" width="20px" /> {{veiculo.proprietario.nome}}</td>
-    <td>{{veiculo.proprietario.ramal}}</td>
     <td>
-      {{veiculo.proprietario.celular}}
-      <a href="intent://send/55{{veiculo.proprietario.celular}}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end">WhatsApp</a>
-      <a href="sms:55{{veiculo.proprietario.celular}}?body=Favor retirar o seu carro no estacionamento">SMS</a>
+        {{veiculo.placa}}
+        <br />
+        {{veiculo.modelo}} {{veiculo.cor}}
+    </td>
+    <td class="center">
+        <img src="https://www.gravatar.com/avatar/{{veiculo.proprietario.gravatar}}?d=mm" />
+        <br />
+        {{veiculo.proprietario.nome}} 
+        <br />
+        <div show-in-mobile><strong>Ramal:</strong> {{veiculo.proprietario.ramal}}</div>
+    </td>
+    <td hide-in-mobile>
+        <div><strong>Ramal:</strong> {{veiculo.proprietario.ramal}}</div>
+        <div><strong>E-Mail:</strong> {{veiculo.proprietario.usuario}}@cwi.com.br</div>
+        <div><strong>Celular:</strong> {{veiculo.proprietario.celular}}</div>
+    </td>
+    <td show-in-mobile>
+        <div class="row">
+          <div class="col-md-6">
+            <a href="intent://send/55{{veiculo.proprietario.celular}}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" class="btn btn-default">
+              <span class="fa fa-whatsapp fa-2x fa-fw" aria-hidden="true"></span>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a href="tel:55{{veiculo.proprietario.celular}}" class="btn btn-default">
+              <span class="fa fa-phone fa-2x fa-fw" aria-hidden="true"></span>
+            </a> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <a href="sms:55{{veiculo.proprietario.celular}}?body=Favor retirar o seu carro no estacionamento" class="btn btn-default">
+              <span class="fa fa-comment-o fa-2x fa-fw" aria-hidden="true"></span>
+            </a>
+          </div>
+          <div class="col-md-6">
+            <a href="mailto:{{veiculo.proprietario.usuario}}@cwi.com.br" class="btn btn-default">
+              <span class="fa fa-envelope-o fa-2x fa-fw" aria-hidden="true"></span>
+            </a> 
+          </div>
+        </div>
+      
     </td>
   </tr>
 </table>
