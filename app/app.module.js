@@ -1,10 +1,11 @@
 'use strict';
 var app = angular.module('app', [
   'ngRoute',
+  'ui.bootstrap',
   'appControllers',
   'appServices'
 ]).config(['$compileProvider', function ($compileProvider) {   
-        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|tel|sms|intent):/);
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|mailto|tel|sms|intent):/);
     }
 ]);
 
