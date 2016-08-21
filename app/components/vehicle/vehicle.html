@@ -6,7 +6,7 @@
 
 <div class="panel panel-default" ng-show="showFormPanel">
   <div class="panel-body">
-    <form class="form-horizontal" ng-submit="save()">
+    <form class="form-horizontal" ng-submit="save()" name="vehicleForm">
       <div class="form-group">
         <label for="placa" class="col-sm-1 control-label">Placa</label>
         <div class="col-sm-3">
@@ -17,14 +17,14 @@
       <div class="form-group">
         <label for="modelo" class="col-sm-1 control-label">Modelo</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" id="modelo" ng-model="vehicle.modelo" required>
+          <input type="text" class="form-control" id="modelo" ng-model="vehicle.modelo" ng-required="true">
         </div>
       </div>
 
       <div class="form-group">
         <label for="cor" class="col-sm-1 control-label">Cor</label>
         <div class="col-sm-3">
-          <input type="text" class="form-control" id="cor" ng-model="vehicle.cor" required>
+          <input type="text" class="form-control" id="cor" ng-model="vehicle.cor" ng-required="true">
         </div>
       </div>
       <button type="button" ng-click="toggleForm()" class="btn btn-default">Cancelar</button>
