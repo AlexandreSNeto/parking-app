@@ -13,8 +13,11 @@
   <script src="/bower_components/jquery/dist/jquery.js"></script>
   <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
   <script src="/bower_components/angular/angular.min.js" charset="utf-8"></script>
-  <script src="/bower_components/angular-route/angular-route.js"></script>
-  <script src="/bower_components/angular-resource/angular-resource.js"></script>
+  <script src="/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+  <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
   <script src="app.module.js"></script>
   <script src="app.routes.js"></script>
@@ -36,24 +39,26 @@
 
   <nav class="navbar navbar-default" ng-show="user.id !== undefined">
     <div class="container-fluid">
-
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#itens-menu">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-        <a class="navbar-brand" href="#/">
+        <a class="navbar-brand" href="#/" data-toggle="collapse" data-target="#itens-menu">
           <img alt="Estacionamento CWI" src="static/images/logo_parking.png">
         </a>
       </div>
 
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse" id="itens-menu">
         <ul class="nav navbar-nav">
-          <li><a href="#/">Buscar</a></li>
-          <li><a href="#/profile">Perfil</a></li>
-          <li><a href="#/vehicle">Veículos</a></li>
+          <li hide-in-mobile><a href="#/">Buscar</a></li>
+          <li show-in-mobile><a href="#/" data-toggle="collapse" data-target="#itens-menu">Buscar</a></li>
+          <li hide-in-mobile><a href="#/profile">Perfil</a></li>
+          <li show-in-mobile><a href="#/profile" data-toggle="collapse" data-target="#itens-menu">Perfil</a></li>
+          <li hide-in-mobile><a href="#/vehicle">Veículos</a></li>
+          <li show-in-mobile><a href="#/vehicle" data-toggle="collapse" data-target="#itens-menu">Veículos</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><p class="navbar-text">{{user.name}}</p></li>
