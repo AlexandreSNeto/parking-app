@@ -14,10 +14,8 @@ angular.module('appControllers').controller('LoginCtrl', ['$scope', 'AuthLogin',
           };
 
           if (!data.celular || !data.ramal) {
-            console.log('Proprietário sem dados, redirecionando para o perfil');
             $location.path('/profile');
           } else {
-            console.log('Proprietário completo, redirecionando para home');
             $location.path('/');
           }
         });       
