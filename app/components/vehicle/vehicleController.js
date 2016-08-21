@@ -9,6 +9,10 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
     };
 
     $scope.save = function () {
+      if (!$scope.vehicleForm.$valid) {
+        return;
+      }
+      
       $scope.vehicle.proprietario = {
         id: $rootScope.user.id
       };
