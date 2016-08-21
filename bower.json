@@ -1,7 +1,7 @@
 {
   "name": "parking-app",
   "version": "0.0.1",
-  "description": "Aplicação para exibição dos dados do parking-api",
+  "description": "Aplicativo que consome a API REST para auto gerenciamento de estacionamento empresarial",
   "main": "app/index.html",
   "moduleType": [
     "node"
