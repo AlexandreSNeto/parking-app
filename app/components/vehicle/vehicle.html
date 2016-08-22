@@ -1,7 +1,7 @@
 <div ng-class="{'alert-success': success, 'alert-danger': fail}" class="alert" ng-show="success || fail">
   <button type="button" class="close" ng-click="success = false; fail = false;"><i class="fa fa-times"></i></button>
   <span class="fa" ng-class="{'fa-check': success, 'fa-exclamation-circle': fail}"></span>
-  {{message}}
+  <strong>{{messageHeader}}</strong> {{message}}
 </div>
 
 <div class="panel panel-default" ng-show="showFormPanel">
@@ -34,7 +34,7 @@
 </div>
 
 <button type="button" class="btn btn-default" ng-click="toggleForm()" ng-hide="showFormPanel">
-  <span class="fa fa-plus-circle"></span> 
+  <span class="fa fa-plus-circle"></span>
   <span hide-in-mobile>Adicionar</span>
 </button>
 
@@ -53,7 +53,7 @@
     <td>{{vehicle.cor}}</td>
     <td>
       <button type="button" class="btn btn-default" ng-click="edit(vehicle)">
-        <span class="fa fa-edit"></span> 
+        <span class="fa fa-edit"></span>
         <span hide-in-mobile>Alterar</span>
       </button>
       <button type="button" class="btn btn-default" ng-click="remove(vehicle.id)">

@@ -6,7 +6,7 @@ appServices.factory('AuthLogin', ['$resource',
     return $resource('/api/login', {}, {
       login:{
           method: "POST",
-          headers : {"Content-Type": "application/x-www-form-urlencoded"} 
+          headers : {"Content-Type": "application/x-www-form-urlencoded"}
       }
     })
   }]);
@@ -14,14 +14,19 @@ appServices.factory('AuthLogin', ['$resource',
 appServices.factory('AuthLogout', ['$resource',
   function($resource){
     return $resource('/api/logout', {}, {});
-  }]);  
+  }]);
 
 appServices.factory('AuthCheck', ['$resource',
   function($resource){
     return $resource('/api/logged-in', {}, {});
-  }]);    
+  }]);
 
 appServices.factory('Vehicle', ['$resource',
+  function($resource){
+    return $resource('/api/veiculo/', {});
+  }]);
+
+appServices.factory('DeleteVehicle', ['$resource',
   function($resource){
     return $resource('/api/veiculo/:id', {id: '@id'});
   }]);
