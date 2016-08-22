@@ -1,12 +1,7 @@
-<div class="mensagem">
-    <p class="bg-success" ng-show="sucesso">
-        <span class="glyphicon glyphicon-ok"></span>
-        <span class="text-success">{{mensagem}}</span>
-    </p>
-    <p class="bg-danger" ng-show="erro">
-        <span class="glyphicon glyphicon-exclamation-sign"></span>
-        <span class="text-danger">{{mensagem}}</span>
-    </p>
+<div ng-class="{'alert-success': success, 'alert-danger': fail}" class="alert" ng-show="success || fail">
+  <button type="button" class="close" ng-click="success = false; fail = false;"><i class="fa fa-times"></i></button>
+  <span class="fa" ng-class="{'fa-check': success, 'fa-exclamation-circle': fail}"></span>
+  {{message}}
 </div>
 
 <div class="container-fluid">
@@ -31,7 +26,7 @@
                     <input type="text" class="form-control" id="name" ng-model="owner.nome" ng-required="true">
                 </div>
             </div>
-            
+
             <div class="form-group">
                 <label for="gravatar" class="col-sm-2 control-label">Hash Gravatar</label>
                 <div class="col-sm-3">
