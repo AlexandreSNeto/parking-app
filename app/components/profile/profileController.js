@@ -17,13 +17,15 @@ angular.module('appControllers').controller('ProfileCtrl', ['$scope', 'Owner',
             });
         };
 
-        var success = function (message) {
+        var success = function (message, messageHeader) {
+            $scope.messageHeader = messageHeader ? messageHeader : 'Sucesso!';
             $scope.message = message;
             $scope.success = true;
             $scope.fail = false;
         };
 
-        var fail = function (message) {
+        var fail = function (message, messageHeader) {
+            $scope.messageHeader = messageHeader ? messageHeader : 'Ops!';
             $scope.message = message;
             $scope.fail = true;
             $scope.success = false;

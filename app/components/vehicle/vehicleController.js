@@ -73,7 +73,8 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
             $scope.fail = false;
         };
 
-        var fail = function (message) {
+        var fail = function (message, messageHeader) {
+            $scope.messageHeader = messageHeader ? messageHeader : 'Ops!';
             $scope.message = message;
             $scope.fail = true;
             $scope.success = false;

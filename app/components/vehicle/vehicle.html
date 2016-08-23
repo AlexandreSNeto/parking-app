@@ -1,8 +1,4 @@
-<div ng-class="{'alert-success': success, 'alert-danger': fail}" class="alert" ng-show="success || fail">
-  <button type="button" class="close" ng-click="success = false; fail = false;"><i class="fa fa-times"></i></button>
-  <span class="fa" ng-class="{'fa-check': success, 'fa-exclamation-circle': fail}"></span>
-  <strong>{{messageHeader}}</strong> {{message}}
-</div>
+<div ng-include="'components/messages/messages.html'"></div>
 
 <div class="panel panel-default" ng-show="showFormPanel">
   <div class="panel-body">
