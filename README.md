@@ -8,7 +8,7 @@ Seu propósito é proporcionar o auto gerenciamento de um estacionamento corpora
 # Ambiente Desenvolvimento
 
 ## Instalar dependências
-`npm install`
+    $ npm install
 
 ## Para desenvolvimento
 `docker run -it --rm -v path/to/parking-app/docker:/etc/nginx/conf.d/ -v path/to/parking-app:/usr/share/nginx/html --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 nginx`
