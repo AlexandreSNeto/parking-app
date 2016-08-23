@@ -2,6 +2,18 @@
 angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScope', 'Vehicle', 'DeleteVehicle',
     function ($scope, $rootScope, Vehicle, DeleteVehicle) {
 
+        // Pagination
+        $scope.pager = {
+            totalElements: 0,
+            totalPages: 0,
+            pagesToShow: 5,
+            size: 10,
+            page: 1
+        };
+        $scope.changePage = function () {
+            getVehicles();
+        };
+
         $scope.showFormPanel = false;
 
         $scope.toggleForm = function () {
@@ -31,8 +43,10 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
         };
 
         var getVehicles = function () {
-            Vehicle.get({}, function (data) {
+            Vehicle.get({page: $scope.pager.page - 1, size: $scope.pager.size}, function (data) {
                 $scope.vehicles = data.content;
+                $scope.pager.totalElements = data.totalElements;
+                $scope.pager.totalPages = data.totalPages;
             });
         };
 
