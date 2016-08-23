@@ -1,0 +1,5 @@
+<div class="text-center" ng-show="pager.totalPages > 1">
+    <ul uib-pagination ng-change="changePage()"
+        ng-model="pager.page" items-per-page="pager.size" total-items="pager.totalElements" max-size="pager.pagesToShow"
+        previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+</div>
