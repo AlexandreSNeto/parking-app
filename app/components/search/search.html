@@ -5,6 +5,7 @@
     </div>
 </form>
 
+<div ng-show="veiculos.length > 0" ng-include="'components/paginator/paginator.html'"></div>
 <table class="table table-striped table-hover search-table" ng-show="veiculos.length > 0">
   <thead>
     <tr>
@@ -22,7 +23,9 @@
     <td class="center">
         <img src="https://www.gravatar.com/avatar/{{veiculo.proprietario.gravatar}}?d=mm" />
         <br />
-        {{veiculo.proprietario.nome}} 
+        {{veiculo.proprietario.nome}}
+        <br />
+        {{veiculo.proprietario.andar}}° Andar / {{veiculo.proprietario.posicao}}
         <br />
         <div show-in-mobile><strong>Ramal:</strong> {{veiculo.proprietario.ramal}}</div>
     </td>
@@ -41,7 +44,7 @@
           <div class="col-md-6">
             <a href="tel:55{{veiculo.proprietario.celular}}" class="btn btn-default">
               <span class="fa fa-phone fa-2x fa-fw" aria-hidden="true"></span>
-            </a> 
+            </a>
           </div>
         </div>
         <div class="row">
@@ -53,9 +56,11 @@
           <div class="col-md-6">
             <a href="mailto:{{veiculo.proprietario.usuario}}@cwi.com.br?Subject=Por favor, retire seu carro no estacionamento" class="btn btn-default">
               <span class="fa fa-envelope-o fa-2x fa-fw" aria-hidden="true"></span>
-            </a> 
+            </a>
           </div>
         </div>
     </td>
   </tr>
 </table>
+<div ng-show="veiculos.length > 0" ng-include="'components/paginator/paginator.html'"></div>
+
