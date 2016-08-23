@@ -33,38 +33,13 @@ body {
 
 /* Search */
 .search-table td.center, .search-table th.center {
-   text-align: center;   
+   text-align: center;
 }
 
 /* Bootstrap Customizations */
 .popover{
     max-width: 100%; /* Max Width of the popover (depending on the container!) */
 }
-
-.btn-default {
-    color: #555555;
-    background-color: #eeeeee;
-    border-color: #cccccc;
-}
-.btn-default:active:hover, .btn-default.active:hover, .open > .dropdown-toggle.btn-default:hover, .btn-default:active:focus, .btn-default.active:focus, .open > .dropdown-toggle.btn-default:focus, .btn-default:active.focus, .btn-default.active.focus, .open > .dropdown-toggle.btn-default.focus
-.btn-default:hover, .btn-default:active, .btn-default:focus, .btn-default:active:focus {
-    color: #555555;
-    background-color: #dadada;
-    border-color: #adadad;
-}
- 
-.btn-primary {
-    color: #fff;
-    background-color: #FBB041;
-    border-color: #faa628;
-}
-.btn-primary:active:hover, .btn-primary.active:hover, .open > .dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .dropdown-toggle.btn-primary.focus,
-.btn-primary:hover, .btn-primary:active, .btn-primary:focus, btn-primary:active:focus {
-    color: #fff;
-    background-color: #fa9f19;
-    border-color: #e18805;
-}
-
 .navbar-brand {
     padding: 5px 5px;
 }
