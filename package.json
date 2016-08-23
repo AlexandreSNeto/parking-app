@@ -1,20 +1,20 @@
 {
   "name": "parking-app",
   "version": "1.0.0",
-  "description": "`bower install`",
-  "main": "server.js",
+  "description": "Aplicativo que consome a API REST para auto gerenciamento de estacionamento empresarial",
   "scripts": {
     "postinstall": "bower install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evertonz23/parking-app.git"
+    "url": "git+https://github.com/alexandresneto/parking-app.git"
   },
   "bugs": {
-    "url": "https://github.com/evertonz23/parking-app/issues"
+    "url": "https://github.com/alexandresneto/parking-app/issues"
   },
-  "homepage": "https://github.com/evertonz23/parking-app#readme",
+  "license": "MIT",
+  "homepage": "https://github.com/alexandresneto/parking-app#readme",
   "devDependencies": {
     "express": "^4.14.0",
     "gulp": "^3.9.1",
