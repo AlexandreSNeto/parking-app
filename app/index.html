@@ -2,74 +2,45 @@
 <html ng-app="app">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-  <title>Estacionamento - CWI Software</title>
-  <link rel="icon" type="image/png" href="/app/static/images/favicon.ico" />
-  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/app/static/css/theme.min.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="/app/static/css/styles.css" media="screen" title="no title" charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Estacionamento - CWI Software</title>
+    <link rel="icon" type="image/png" href="/app/static/images/favicon.ico" />
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/app/static/css/theme.min.css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/app/static/css/styles.css" media="screen" title="no title" charset="utf-8">
 
-  <script src="/bower_components/jquery/dist/jquery.min.js"></script>
-  <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
-  <script src="/bower_components/angular/angular.min.js" charset="utf-8"></script>
-  <script src="/bower_components/angular-route/angular-route.min.js"></script>
-  <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
-  <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
-  <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
-  <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
+    <script src="/bower_components/angular/angular.min.js" charset="utf-8"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
-  <script src="app.module.js"></script>
-  <script src="app.routes.js"></script>
-  <script src="app.controllers.js"></script>
-  <script src="app.services.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.routes.js"></script>
+    <script src="app.controllers.js"></script>
+    <script src="app.services.js"></script>
 
-  <script src="shared/detectMobileService.js"></script>
-  <script src="shared/showInMobileDirective.js"></script>
-  <script src="shared/hideInMobileDirective.js"></script>
+    <script src="shared/detectMobileService.js"></script>
+    <script src="shared/showInMobileDirective.js"></script>
+    <script src="shared/hideInMobileDirective.js"></script>
 
-  <script src="components/login/loginController.js"></script>
-  <script src="components/login/logoutController.js"></script>
-  <script src="components/search/searchController.js"></script>
-  <script src="components/profile/profileController.js"></script>
-  <script src="components/vehicle/vehicleController.js"></script>
+    <script src="components/login/loginController.js"></script>
+    <script src="components/login/logoutController.js"></script>
+    <script src="components/search/searchController.js"></script>
+    <script src="components/profile/profileController.js"></script>
+    <script src="components/vehicle/vehicleController.js"></script>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-default" ng-show="user.id !== undefined">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#itens-menu">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        <a class="navbar-brand" href="#/" data-toggle="collapse" data-target="#itens-menu">
-          <img alt="Estacionamento CWI" src="static/images/logo_parking.png">
-        </a>
-      </div>
+    <div ng-include="'components/navbar/navbar.html'"></div>
 
-      <div class="collapse navbar-collapse" id="itens-menu">
-        <ul class="nav navbar-nav">
-          <li hide-in-mobile><a href="#/">Buscar</a></li>
-          <li show-in-mobile><a href="#/" data-toggle="collapse" data-target="#itens-menu">Buscar</a></li>
-          <li hide-in-mobile><a href="#/profile">Perfil</a></li>
-          <li show-in-mobile><a href="#/profile" data-toggle="collapse" data-target="#itens-menu">Perfil</a></li>
-          <li hide-in-mobile><a href="#/vehicle">Veículos</a></li>
-          <li show-in-mobile><a href="#/vehicle" data-toggle="collapse" data-target="#itens-menu">Veículos</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#/profile">{{user.name}}</a></li>
-          <li><a href="#/logout">Sair</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <div ng-view class="container"></div>
+    <div ng-view class="container"></div>
 
 </body>
 
