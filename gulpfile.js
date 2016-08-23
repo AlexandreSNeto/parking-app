@@ -6,80 +6,101 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var clean = require('gulp-clean');
 var copy = require('gulp-copy');
+var htmlmin = require('gulp-htmlmin');
 
 var config = {
 
-  dist: {
-    dir: './dist'
-  },
+    dist: {
+        dir: './dist'
+    },
 
-  vendor: [
-    '/bower_components/jquery/dist/jquery.min.js',
-    '/bower_components/bootstrap/dist/js/bootstrap.min.js',
-    '/bower_components/angular/angular.min.js',
-    '/bower_components/angular-route/angular-route.min.js',
-    '/bower_components/angular-resource/angular-resource.min.js',
-    '/bower_components/angular-animate/angular-animate.min.js',
-    '/bower_components/angular-bootstrap/ui-bootstrap.min.js',
-    '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-  ],
+    vendorjs: [
+        '/bower_components/jquery/dist/jquery.min.js',
+        '/bower_components/bootstrap/dist/js/bootstrap.min.js',
+        '/bower_components/angular/angular.min.js',
+        '/bower_components/angular-route/angular-route.min.js',
+        '/bower_components/angular-resource/angular-resource.min.js',
+        '/bower_components/angular-animate/angular-animate.min.js',
+        '/bower_components/angular-bootstrap/ui-bootstrap.min.js',
+        '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+    ],
 
-  src: [
-    './app/app.module.js',
-    './app/app.routes.js',
-    './app/app.services.js',
-    './app/app.controllers.js',
-    './app/components/login/loginController.js',
-    './app/components/login/logoutController.js',
-    './app/components/profile/profileController.js',
-    './app/components/search/searchController.js',
-    './app/components/vehicle/vehicleController.js',
-    './app/shared/detectMobileService.js',
-    './app/shared/showInMobileDirective.js',
-    './app/shared/hideInMobileDirective.js'
-  ],
+    vendorcss: [
+        '/bower_components/bootstrap/dist/css/bootstrap.min.css',
+        '/bower_components/font-awesome/css/font-awesome.min.css'
+    ],
 
-  static: [
-    './app/static/css/*',
-    './app/static/images/*'
-  ],
+    fonts: './bower_components/font-awesome/fonts/*',
 
-  index: './app/index.html'
+    appjs: [
+        './app/app.module.js',
+        './app/app.routes.js',
+        './app/app.services.js',
+        './app/app.controllers.js',
+        './app/shared/detectMobileService.js',
+        './app/shared/showInMobileDirective.js',
+        './app/shared/hideInMobileDirective.js',
+        './app/components/login/loginController.js',
+        './app/components/login/logoutController.js',
+        './app/components/search/searchController.js',
+        './app/components/profile/profileController.js',
+        './app/components/vehicle/vehicleController.js'
+    ],
 
+    static: [
+        './app/static/css/*',
+        './app/static/images/*'
+    ],
+
+    html: './app/**/*.html'
 };
 
-// TODO: Copiar os html
-// TODO: Copiar as fontes do bower_components
-// TODO: Copiar os css do bootstrap
-
-gulp.task('clean', function() {
-   return gulp.src(config.dist.dir).pipe(clean({ force: true }));
+gulp.task('clean', function () {
+    return gulp.src(config.dist.dir).pipe(clean({ force: true }));
 });
 
-gulp.task('static', ['clean'], function() {
-  return gulp.src(config.static)
-    .pipe(copy(config.dist.dir));
+// Copia o conteúdo estático: css e imagens'
+gulp.task('static', ['clean'], function () {
+    return gulp.src(config.static)
+        .pipe(copy(config.dist.dir));
 });
 
-gulp.task('index', ['clean'], function() {
-  return gulp.src(config.index)
-    .pipe(gulp.dest(config.dist.dir));
+// Copia as fontes do FontAwesome
+gulp.task('fonts', ['clean'], function () {
+    return gulp.src(config.fonts)
+        .pipe(gulp.dest(config.dist.dir + '/app/static/fonts'));
 });
 
-gulp.task('js-vendor', ['clean'], function() {
-  return gulp.src(config.vendor)
-    .pipe(concat('vendor.js'))
-    .pipe(uglify())
-    .pipe(rename('vendor.min.js'))
-    .pipe(gulp.dest(config.dist.dir));
+// Copia e minifica os HTML
+gulp.task('html', ['clean'], function () {
+    return gulp.src(config.html)
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(copy(config.dist.dir));
 });
 
-gulp.task('js-src', ['clean'], function() {
-  return gulp.src(config.src)
-    .pipe(concat('src.js'))
-    .pipe(uglify())
-    .pipe(rename('src.min.js'))
-    .pipe(gulp.dest(config.dist.dir));
+// Copia, concatena e minifica o js do bower_components
+gulp.task('js-vendor', ['clean'], function () {
+    return gulp.src(config.vendorjs)
+        .pipe(concat('vendor.js'))
+        .pipe(uglify())
+        .pipe(rename('vendor.min.js'))
+        .pipe(copy(config.dist.dir));
 });
 
-gulp.task('build', ['js-vendor', 'js-src', 'static', 'index']);
+// Copia e concatena o css do bower_components
+gulp.task('css-vendor', ['clean'], function () {
+    return gulp.src(config.vendorcss)
+        .pipe(concat('vendor.css'))
+        .pipe(gulp.dest(config.dist.dir + '/app/static/css'));
+});
+
+// Copia e concatena os js da aplicação
+gulp.task('js-app', ['clean'], function () {
+    return gulp.src(config.appjs)
+        .pipe(concat('app.js'))
+        //.pipe(uglify()) TODO: Angular nao pode ser uglified devido ao $scope estar fortemente ligado ao HTML
+        //.pipe(rename('app.min.js'))
+        .pipe(gulp.dest(config.dist.dir));
+});
+
+gulp.task('build', ['js-vendor', 'css-vendor', 'js-app', 'static', 'html', 'fonts']);
