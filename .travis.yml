@@ -23,4 +23,4 @@ after_success:
     - if [ "$TRAVIS_BRANCH" == "master" ]; then
         docker tag $REPO alexandresneto/$REPO;
         docker push alexandresneto/$REPO:latest;
-    fi
+      fi
