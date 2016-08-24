@@ -27,8 +27,8 @@ Executar um container do parking-app.
 ## Criar um container
 
 ### Quando a api estiver em **outro host**
-    $ docker run -d --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 parking-app
+    $ docker run --name parking-app -d --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 parking-app
 
 ### Quando a api estiver no **mesmo host**
-    $ docker run -d --link parking-api:api -p 8080:80 parking-app
+    $ docker run --name parking-app -d --link parking-api:api -p 8080:80 parking-app
 
