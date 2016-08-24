@@ -18,6 +18,9 @@ O gulp é reponsável por monitorar alterações no código fonte e atualizar a 
 Seguir os passos para executar a [parking-api](https://github.com/gustajz/parking-api).
 Executar um container do parking-app.
 
+## Instalar dependências
+    $ npm install
+    
 ## Compilar imagem Docker
     $ docker build -t parking-app .
 
