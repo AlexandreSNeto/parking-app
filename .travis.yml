@@ -1,0 +1,26 @@
+language: node_js
+
+node_js:
+    - "6"
+
+services:
+    - docker
+
+before_install:
+    - npm install -g gulp
+    - npm install -g bower
+
+install:
+    - npm install
+
+script:
+    - docker build -t alexandresneto/parking-app .
+
+after_success:
+    - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    - export REPO=parking-app
+    - docker push alexandresneto/parking-app;
+    - if [ "$TRAVIS_BRANCH" == "master" ]; then
+        docker tag $REPO alexandresneto/$REPO;
+        docker push alexandresneto/$REPO:latest;
+    fi
