@@ -5,7 +5,6 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var clean = require('gulp-clean');
-var copy = require('gulp-copy');
 var htmlmin = require('gulp-htmlmin');
 
 var config = {
@@ -15,22 +14,25 @@ var config = {
     },
 
     vendorjs: [
-        '/bower_components/jquery/dist/jquery.min.js',
-        '/bower_components/bootstrap/dist/js/bootstrap.min.js',
-        '/bower_components/angular/angular.min.js',
-        '/bower_components/angular-route/angular-route.min.js',
-        '/bower_components/angular-resource/angular-resource.min.js',
-        '/bower_components/angular-animate/angular-animate.min.js',
-        '/bower_components/angular-bootstrap/ui-bootstrap.min.js',
-        '/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+        './bower_components/jquery/dist/jquery.min.js',
+        './bower_components/bootstrap/dist/js/bootstrap.min.js',
+        './bower_components/angular/angular.min.js',
+        './bower_components/angular-route/angular-route.min.js',
+        './bower_components/angular-resource/angular-resource.min.js',
+        './bower_components/angular-animate/angular-animate.min.js',
+        './bower_components/angular-bootstrap/ui-bootstrap.min.js',
+        './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
+        './bower_components/angular-bootstrap-show-errors/src/showErrors.min.js'
     ],
 
     vendorcss: [
-        '/bower_components/bootstrap/dist/css/bootstrap.min.css',
-        '/bower_components/font-awesome/css/font-awesome.min.css'
+        './bower_components/bootstrap/dist/css/bootstrap.min.css',
+        './bower_components/font-awesome/css/font-awesome.min.css'
     ],
 
     fonts: './bower_components/font-awesome/fonts/*',
+
+    app: './app/**/*',
 
     appjs: [
         './app/app.module.js',
@@ -48,8 +50,7 @@ var config = {
     ],
 
     static: [
-        './app/static/css/*',
-        './app/static/images/*'
+        './app/static/**/*'
     ],
 
     html: './app/**/*.html'
@@ -62,36 +63,34 @@ gulp.task('clean', function () {
 // Copia o conteúdo estático: css e imagens'
 gulp.task('static', ['clean'], function () {
     return gulp.src(config.static)
-        .pipe(copy(config.dist.dir));
+        .pipe(gulp.dest(config.dist.dir + '/static'));
 });
 
 // Copia as fontes do FontAwesome
 gulp.task('fonts', ['clean'], function () {
     return gulp.src(config.fonts)
-        .pipe(gulp.dest(config.dist.dir + '/app/static/fonts'));
+        .pipe(gulp.dest(config.dist.dir + '/static/fonts'));
 });
 
 // Copia e minifica os HTML
 gulp.task('html', ['clean'], function () {
     return gulp.src(config.html)
         .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(copy(config.dist.dir));
+        .pipe(gulp.dest(config.dist.dir));
 });
 
 // Copia, concatena e minifica o js do bower_components
 gulp.task('js-vendor', ['clean'], function () {
     return gulp.src(config.vendorjs)
         .pipe(concat('vendor.js'))
-        .pipe(uglify())
-        .pipe(rename('vendor.min.js'))
-        .pipe(copy(config.dist.dir));
+        .pipe(gulp.dest(config.dist.dir + '/static/js'));
 });
 
 // Copia e concatena o css do bower_components
 gulp.task('css-vendor', ['clean'], function () {
     return gulp.src(config.vendorcss)
         .pipe(concat('vendor.css'))
-        .pipe(gulp.dest(config.dist.dir + '/app/static/css'));
+        .pipe(gulp.dest(config.dist.dir + '/static/css'));
 });
 
 // Copia e concatena os js da aplicação
@@ -103,4 +102,9 @@ gulp.task('js-app', ['clean'], function () {
         .pipe(gulp.dest(config.dist.dir));
 });
 
+gulp.task('watch', function () {
+    gulp.watch(config.app, ['build']);
+});
+
 gulp.task('build', ['js-vendor', 'css-vendor', 'js-app', 'static', 'html', 'fonts']);
+gulp.task('default', ['watch'], function() {});
