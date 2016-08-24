@@ -1,7 +1,7 @@
 <form class="form-inline">
     <div class="input-group">
       <div class="input-group-addon"><span class="fa fa-search"></span></div>
-      <input type="text" class="form-control" id="search" placeholder="Placa" ng-model="licensePlate" autofocus>
+      <input type="text" class="form-control" id="search" placeholder="Placa" ng-model="licensePlate" autofocus autocomplete="off">
     </div>
 </form>
 
@@ -37,13 +37,13 @@
     <td show-in-mobile>
         <div class="row">
           <div class="col-md-6">
-            <a href="intent://send/55{{veiculo.proprietario.celular}}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" class="btn btn-default">
-              <span class="fa fa-whatsapp fa-2x fa-fw"></span>
+            <a href="tel:0{{veiculo.proprietario.celular}}" class="btn btn-default">
+              <span class="fa fa-phone fa-2x fa-fw"></span>
             </a>
           </div>
           <div class="col-md-6">
-            <a href="tel:55{{veiculo.proprietario.celular}}" class="btn btn-default">
-              <span class="fa fa-phone fa-2x fa-fw"></span>
+            <a href="intent://send/55{{veiculo.proprietario.celular}}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" class="btn btn-default">
+              <span class="fa fa-whatsapp fa-2x fa-fw"></span>
             </a>
           </div>
         </div>
