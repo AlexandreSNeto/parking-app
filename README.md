@@ -1,4 +1,5 @@
-# Parking APP
+[![Build Status](https://travis-ci.org/AlexandreSNeto/parking-app.svg?branch=master)](https://travis-ci.org/AlexandreSNeto/parking-app)
+# Parking APP 
 
 Aplicação que consome a [parking-api](https://github.com/gustajz/parking-api).
 Seu propósito é proporcionar o auto gerenciamento de um estacionamento corporativo.
