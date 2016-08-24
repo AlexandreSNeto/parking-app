@@ -1,6 +1,6 @@
 <form class="form-inline">
     <div class="input-group">
-      <div class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></div>
+      <div class="input-group-addon"><span class="fa fa-search"></span></div>
       <input type="text" class="form-control" id="search" placeholder="Placa" ng-model="licensePlate" autofocus>
     </div>
 </form>
@@ -38,24 +38,24 @@
         <div class="row">
           <div class="col-md-6">
             <a href="intent://send/55{{veiculo.proprietario.celular}}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" class="btn btn-default">
-              <span class="fa fa-whatsapp fa-2x fa-fw" aria-hidden="true"></span>
+              <span class="fa fa-whatsapp fa-2x fa-fw"></span>
             </a>
           </div>
           <div class="col-md-6">
             <a href="tel:55{{veiculo.proprietario.celular}}" class="btn btn-default">
-              <span class="fa fa-phone fa-2x fa-fw" aria-hidden="true"></span>
+              <span class="fa fa-phone fa-2x fa-fw"></span>
             </a>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
             <a href="sms:55{{veiculo.proprietario.celular}}?body=Por favor, retire seu carro no estacionamento" class="btn btn-default">
-              <span class="fa fa-comment-o fa-2x fa-fw" aria-hidden="true"></span>
+              <span class="fa fa-comment-o fa-2x fa-fw"></span>
             </a>
           </div>
           <div class="col-md-6">
             <a href="mailto:{{veiculo.proprietario.usuario}}@cwi.com.br?Subject=Por favor, retire seu carro no estacionamento" class="btn btn-default">
-              <span class="fa fa-envelope-o fa-2x fa-fw" aria-hidden="true"></span>
+              <span class="fa fa-envelope-o fa-2x fa-fw"></span>
             </a>
           </div>
         </div>
