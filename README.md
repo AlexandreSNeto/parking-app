@@ -19,17 +19,11 @@ O gulp é reponsável por monitorar alterações no código fonte e atualizar a 
 Seguir os passos para executar a [parking-api](https://github.com/gustajz/parking-api).
 Executar um container do parking-app.
 
-## Instalar dependências
-    $ npm install
-    
-## Compilar imagem Docker
-    $ docker build -t parking-app .
-
 ## Criar um container
 
 ### Quando a api estiver em **outro host**
-    $ docker run --name parking-app -d --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 parking-app
+    $ docker run --name parking-app -d --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 alexandresneto/parking-app
 
 ### Quando a api estiver no **mesmo host**
-    $ docker run --name parking-app -d --link parking-api:api -p 8080:80 parking-app
+    $ docker run --name parking-app -d --link parking-api:api -p 8080:80 alexandresneto/parking-app
 
