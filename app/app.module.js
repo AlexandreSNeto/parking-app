@@ -1,13 +1,15 @@
 'use strict';
 var app = angular.module('app', [
-  'ngRoute',
-  'ui.bootstrap',
-  'appControllers',
-  'appServices'
-]).config(['$compileProvider', function ($compileProvider) {   
-        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|mailto|tel|sms|intent):/);
-    }
-]);
+    'ngRoute',
+    'ui.bootstrap',
+    'ui.bootstrap.showErrors',
+    'appControllers',
+    'appServices'
+]).config(['$compileProvider', function ($compileProvider) {
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|mailto|tel|sms|intent):/);
+}]).config(['showErrorsConfigProvider', function (showErrorsConfigProvider) {
+    showErrorsConfigProvider.showSuccess(true);
+}]);
 
 app.run(['$rootScope', '$location', 'AuthCheck', 'Owner', function ($rootScope, $location, AuthCheck, Owner) {
 
@@ -18,7 +20,7 @@ app.run(['$rootScope', '$location', 'AuthCheck', 'Owner', function ($rootScope, 
                 name: data.nome,
                 avatar: data.gravatar
             };
-        }, function() {
+        }, function () {
             $location.path('/login');
         });
     }
@@ -26,11 +28,11 @@ app.run(['$rootScope', '$location', 'AuthCheck', 'Owner', function ($rootScope, 
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
         var restrictedPage = $location.path() != '/login';
         if (restrictedPage) {
-            AuthCheck.get({}, function (success) {}, function (fail) {
+            AuthCheck.get({}, function (success) { }, function (fail) {
                 $rootScope.user = {};
                 event.preventDefault();
                 $location.path('/login');
             });
         }
-    });    
+    });
 }]);
