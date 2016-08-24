@@ -7,9 +7,11 @@ angular.module('appControllers').controller('ProfileCtrl', ['$scope', 'Owner',
         });
 
         $scope.salvar = function () {
+            $scope.$broadcast('show-errors-check-validity');
             if (!$scope.profileForm.$valid) {
                 return;
             }
+
             Owner.save($scope.owner, function () {
                 success('Perfil atualizado.');
             }, function (failData) {
@@ -18,6 +20,7 @@ angular.module('appControllers').controller('ProfileCtrl', ['$scope', 'Owner',
         };
 
         var success = function (message, messageHeader) {
+            $scope.$broadcast('show-errors-reset');
             $scope.messageHeader = messageHeader ? messageHeader : 'Sucesso!';
             $scope.message = message;
             $scope.success = true;

@@ -18,10 +18,12 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
 
         $scope.toggleForm = function () {
             $scope.vehicle = {};
+            $scope.$broadcast('show-errors-reset');
             $scope.showFormPanel = !$scope.showFormPanel;
         };
 
         $scope.save = function () {
+            $scope.$broadcast('show-errors-check-validity');
             if (!$scope.vehicleForm.$valid) {
                 return;
             }
@@ -43,7 +45,7 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
         };
 
         var getVehicles = function () {
-            Vehicle.get({page: $scope.pager.page - 1, size: $scope.pager.size}, function (data) {
+            Vehicle.get({ page: $scope.pager.page - 1, size: $scope.pager.size }, function (data) {
                 $scope.vehicles = data.content;
                 $scope.pager.totalElements = data.totalElements;
                 $scope.pager.totalPages = data.totalPages;
@@ -67,6 +69,7 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
         };
 
         var success = function (message, messageHeader) {
+            $scope.$broadcast('show-errors-reset');
             $scope.messageHeader = messageHeader ? messageHeader : 'Sucesso!';
             $scope.message = message;
             $scope.success = true;
