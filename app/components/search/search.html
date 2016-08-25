@@ -3,6 +3,7 @@
       <div class="input-group-addon"><span class="fa fa-search"></span></div>
       <input type="text" class="form-control" id="search" placeholder="Placa" ng-model="licensePlate" autofocus autocomplete="off">
     </div>
+    <span id="helpBlock" class="help-block">Informe pelo menos os 2 primeiros dígitos da placa</span>
 </form>
 
 <div ng-show="veiculos.length > 0" ng-include="'components/paginator/paginator.html'"></div>
