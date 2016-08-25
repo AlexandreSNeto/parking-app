@@ -18,7 +18,7 @@ angular.module('appControllers').controller('SearchCtrl', ['$scope', 'SearchVehi
         $scope.veiculos = [];
 
         $scope.$watch('licensePlate', function (value) {
-            if ($scope.licensePlate != '') {
+            if ($scope.licensePlate != '' && $scope.licensePlate.length >= 2) {
                 $scope.pager.page = 1;
                 search();
             } else {
