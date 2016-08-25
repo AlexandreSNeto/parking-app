@@ -22,7 +22,8 @@ var config = {
         './bower_components/angular-animate/angular-animate.min.js',
         './bower_components/angular-bootstrap/ui-bootstrap.min.js',
         './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
-        './bower_components/angular-bootstrap-show-errors/src/showErrors.min.js'
+        './bower_components/angular-bootstrap-show-errors/src/showErrors.min.js',
+        './bower_components/angular-ui-mask/dist/mask.min.js'
     ],
 
     vendorcss: [
