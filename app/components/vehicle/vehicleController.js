@@ -16,11 +16,38 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
 
         $scope.showFormPanel = false;
 
+        $scope.otherColor = 'other';
+        $scope.colors = [
+            'Amarelo',
+            'Azul',
+            'Bege',
+            'Bordô',
+            'Branco',
+            'Champagne',
+            'Cinza',
+            'Dourado',
+            'Grafite',
+            'Laranja',
+            'Marrom',
+            'Ouro',
+            'Prata',
+            'Preto',
+            'Rosa',
+            'Roxo',
+            'Verde',
+            'Vermelho'
+        ];
+
         $scope.toggleForm = function () {
             $scope.vehicle = {};
+            $scope.inputedColor = '';
             $scope.$broadcast('show-errors-reset');
             $scope.showFormPanel = !$scope.showFormPanel;
         };
+
+        var formIsOpen = function () {
+            return $scope.showFormPanel;
+        }
 
         $scope.save = function () {
             $scope.$broadcast('show-errors-check-validity');
@@ -34,9 +61,12 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
                 };
             }
 
+            if ($scope.vehicle.cor === $scope.otherColor) {
+                $scope.vehicle.cor = $scope.inputedColor;
+            }
+
             Vehicle.save($scope.vehicle, function (data) {
                 success("Veículo adicionado.");
-                $scope.vehicle = {};
                 $scope.toggleForm();
                 getVehicles();
             }, function (failData) {
@@ -62,11 +92,23 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
         };
 
         $scope.edit = function (vehicle) {
-            $scope.toggleForm();
-            $scope.vehicle = vehicle;
-            console.log('editando veiculo');
-            console.log(vehicle);
+            if (!formIsOpen()) {
+                $scope.toggleForm();
+            }
+            $scope.vehicle = angular.copy(vehicle);
+
+            if ($.inArray($scope.vehicle.cor, $scope.colors) == -1) {
+                $scope.inputedColor = $scope.vehicle.cor;
+                $scope.vehicle.cor = $scope.otherColor;
+            }
         };
+
+        $scope.selectedOther = function () {
+            if ($scope.vehicle) {
+                return $scope.vehicle.cor === $scope.otherColor;
+            }
+            return false;
+        }
 
         var success = function (message, messageHeader) {
             $scope.$broadcast('show-errors-reset');

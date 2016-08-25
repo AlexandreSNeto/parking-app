@@ -1,32 +1,36 @@
 <div ng-include="'components/messages/messages.html'"></div>
 
 <div class="panel panel-default" ng-show="showFormPanel">
-  <div class="panel-body">
-    <form class="form-horizontal" ng-submit="save()" name="vehicleForm">
-      <div class="form-group" show-errors>
-        <label for="placa" class="col-sm-1 control-label">Placa</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" name="placa" id="placa" ng-model="vehicle.placa" ng-maxlength="7" ng-required="true">
-        </div>
-      </div>
+    <div class="panel-body">
+        <form class="form-horizontal" ng-submit="save()" name="vehicleForm">
+            <div class="form-group" show-errors>
+                <label for="placa" class="col-sm-1 control-label">Placa</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="placa" id="placa" ng-model="vehicle.placa" ui-mask="AAA9999" ng-maxlength="7" ng-required="true">
+                </div>
+            </div>
 
-      <div class="form-group" show-errors>
-        <label for="modelo" class="col-sm-1 control-label">Modelo</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" name="modelo" id="modelo" ng-model="vehicle.modelo" ng-required="true">
-        </div>
-      </div>
+            <div class="form-group" show-errors>
+                <label for="modelo" class="col-sm-1 control-label">Modelo</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="modelo" id="modelo" ng-model="vehicle.modelo" ng-maxlength="48" maxlength="48" ng-required="true">
+                </div>
+            </div>
 
-      <div class="form-group" show-errors>
-        <label for="cor" class="col-sm-1 control-label">Cor</label>
-        <div class="col-sm-3">
-          <input type="text" class="form-control" name="cor" id="cor" ng-model="vehicle.cor" ng-required="true">
-        </div>
-      </div>
-      <button type="button" ng-click="toggleForm()" class="btn btn-default">Cancelar</button>
-      <button type="submit" class="btn btn-primary">Salvar</button>
-    </form>
-  </div>
+            <div class="form-group" show-errors>
+                <label for="cor" class="col-sm-1 control-label">Cor</label>
+                <div class="col-sm-3">
+                    <select class="form-control" ng-model="vehicle.cor">
+                        <option ng-repeat="color in colors">{{color}}</option>
+                        <option value="{{otherColor}}">Outra</option>
+                    </select>
+                    <input type="text" class="form-control" name="cor" id="cor" ng-model="inputedColor" ng-show="selectedOther()" ng-required="selectedOther()">
+                </div>
+            </div>
+            <button type="button" ng-click="toggleForm()" class="btn btn-default">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
 </div>
 
 <button type="button" class="btn btn-default" ng-click="toggleForm()" ng-hide="showFormPanel">
@@ -35,28 +39,28 @@
 </button>
 
 <table class="table table-striped table-hover">
-  <thead>
-    <tr>
-      <th>Placa</th>
-      <th>Modelo</th>
-      <th>Cor</th>
-      <th>Ação</th>
-    </tr>
-  </thead>
-  <tr ng-repeat="vehicle in vehicles">
-    <td>{{vehicle.placa}}</td>
-    <td>{{vehicle.modelo}}</td>
-    <td>{{vehicle.cor}}</td>
-    <td>
-      <button type="button" class="btn btn-default" ng-click="edit(vehicle)">
+    <thead>
+        <tr>
+            <th>Placa</th>
+            <th>Modelo</th>
+            <th>Cor</th>
+            <th>Ação</th>
+        </tr>
+    </thead>
+    <tr ng-repeat="vehicle in vehicles">
+        <td>{{vehicle.placa}}</td>
+        <td>{{vehicle.modelo}}</td>
+        <td>{{vehicle.cor}}</td>
+        <td>
+            <button type="button" class="btn btn-default" ng-click="edit(vehicle)">
         <span class="fa fa-edit"></span>
         <span hide-in-mobile>Alterar</span>
       </button>
-      <button type="button" class="btn btn-default" ng-click="remove(vehicle.id)">
+            <button type="button" class="btn btn-default" ng-click="remove(vehicle.id)">
         <span class="fa fa-minus-circle"></span>
         <span hide-in-mobile>Remover</span>
       </button>
-    </td>
-  </tr>
+        </td>
+    </tr>
 </table>
 <div ng-show="vehicles.length > 0" ng-include="'components/paginator/paginator.html'"></div>
