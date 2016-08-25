@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/AlexandreSNeto/parking-app.svg?branch=master)](https://travis-ci.org/AlexandreSNeto/parking-app)
+[![Docker Pulls](https://img.shields.io/docker/pulls/alexandresneto/parking-app.svg?maxAge=2592000)](https://hub.docker.com/r/alexandresneto/parking-app/)
 # Parking APP 
 
 Aplicação que consome a [parking-api](https://github.com/gustajz/parking-api).
