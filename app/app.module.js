@@ -3,6 +3,7 @@ var app = angular.module('app', [
     'ngRoute',
     'ui.bootstrap',
     'ui.bootstrap.showErrors',
+    'ui.mask',
     'appControllers',
     'appServices'
 ]).config(['$compileProvider', function ($compileProvider) {
