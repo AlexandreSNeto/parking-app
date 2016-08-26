@@ -4,6 +4,7 @@ var app = angular.module('app', [
     'ui.bootstrap',
     'ui.bootstrap.showErrors',
     'ui.mask',
+    'cgBusy',
     'appControllers',
     'appServices'
 ]).config(['$compileProvider', function ($compileProvider) {

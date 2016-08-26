@@ -23,12 +23,14 @@ var config = {
         './bower_components/angular-bootstrap/ui-bootstrap.min.js',
         './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
         './bower_components/angular-bootstrap-show-errors/src/showErrors.min.js',
-        './bower_components/angular-ui-mask/dist/mask.min.js'
+        './bower_components/angular-ui-mask/dist/mask.min.js',
+        './bower_components/angular-busy/dist/angular-busy.min.js'
     ],
 
     vendorcss: [
         './bower_components/bootstrap/dist/css/bootstrap.min.css',
-        './bower_components/font-awesome/css/font-awesome.min.css'
+        './bower_components/font-awesome/css/font-awesome.min.css',
+        './bower_components/angular-busy/dist/angular-busy.min.css'
     ],
 
     fonts: './bower_components/font-awesome/fonts/*',

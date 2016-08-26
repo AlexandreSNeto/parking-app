@@ -27,7 +27,7 @@ angular.module('appControllers').controller('SearchCtrl', ['$scope', 'SearchVehi
         });
 
         var search = function () {
-            SearchVehicle.get({ placa: $scope.licensePlate, page: $scope.pager.page - 1, size: $scope.pager.size }, function (data) {
+            $scope.searchPromise = SearchVehicle.get({ placa: $scope.licensePlate, page: $scope.pager.page - 1, size: $scope.pager.size }, function (data) {
                 $scope.veiculos = data.content;
                 $scope.pager.totalElements = data.totalElements;
                 $scope.pager.totalPages = data.totalPages;
