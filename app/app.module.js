@@ -8,7 +8,7 @@ var app = angular.module('app', [
     'appControllers',
     'appServices'
 ]).config(['$compileProvider', function ($compileProvider) {
-    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|mailto|tel|sms|intent):/);
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|whatsapp|mailto|tel|sms|intent):/);
 }]).config(['showErrorsConfigProvider', function (showErrorsConfigProvider) {
     showErrorsConfigProvider.showSuccess(true);
 }]);

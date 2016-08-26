@@ -47,14 +47,20 @@
             </a>
           </div>
           <div class="col-md-6">
-            <a href="intent://send/55{{veiculo.proprietario.celular}}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" class="btn btn-default">
+            <a hide-in-iphone href="intent://send/55{{veiculo.proprietario.celular}}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end" class="btn btn-default">
+              <span class="fa fa-whatsapp fa-2x fa-fw"></span>
+            </a>
+            <a show-in-iphone href="whatsapp://send?text=Por favor, retire seu carro no estacionamento" class="btn btn-default">
               <span class="fa fa-whatsapp fa-2x fa-fw"></span>
             </a>
           </div>
         </div>
         <div class="row">
           <div class="col-md-6">
-            <a href="sms:55{{veiculo.proprietario.celular}}?body=Por favor, retire seu carro no estacionamento" class="btn btn-default">
+            <a hide-in-iphone href="sms:55{{veiculo.proprietario.celular}}?body=Por favor, retire seu carro no estacionamento" class="btn btn-default">
+              <span class="fa fa-comment-o fa-2x fa-fw"></span>
+            </a>
+            <a show-in-iphone href="sms:55{{veiculo.proprietario.celular}}" class="btn btn-default">
               <span class="fa fa-comment-o fa-2x fa-fw"></span>
             </a>
           </div>
