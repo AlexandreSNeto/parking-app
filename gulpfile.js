@@ -45,6 +45,8 @@ var config = {
         './app/shared/detectMobileService.js',
         './app/shared/showInMobileDirective.js',
         './app/shared/hideInMobileDirective.js',
+        './app/shared/hideInIphoneDirective.js',
+        './app/shared/showInIphoneDirective.js',
         './app/components/login/loginController.js',
         './app/components/login/logoutController.js',
         './app/components/search/searchController.js',

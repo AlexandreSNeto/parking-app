@@ -9,6 +9,10 @@ angular.module('appServices').factory('DetectMobileService', [function () {
         return check;
     }
 
+    instance.isIphone = function () {
+        return navigator.userAgent.match(/iPhone/i);
+    }
+
     return instance;
 
 }]);
