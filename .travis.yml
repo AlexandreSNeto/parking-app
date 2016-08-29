@@ -19,7 +19,7 @@ script:
 after_success:
     - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
     - export REPO=parking-app
-    - export VERSION=grep -m1 version package.json | awk -F: '{ print $2 }' | sed 's/[", ]//g'
+    - export VERSION=node -p -e "JSON.parse(require('fs').readFileSync('package.json', 'utf8')).version"
     - docker tag $REPO alexandresneto/$REPO:$VERSION;
     - docker push alexandresneto/$REPO:$VERSION;
     - if [ "$TRAVIS_BRANCH" == "master" ]; then
