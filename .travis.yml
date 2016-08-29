@@ -14,7 +14,9 @@ install:
     - npm install
 
 script:
-    - docker build -t alexandresneto/parking-app .
+    - export APP_NAME=parking-app
+    - export VERSION=$(node -p -e "JSON.parse(require('fs').readFileSync('package.json', 'utf8')).version")
+    - docker build -t $DOCKER_USERNAME/$APP_NAME:$VERSION .
 
 branches:
     only:
@@ -23,11 +25,9 @@ branches:
 
 after_success:
     - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    - export REPO=parking-app
-    - export VERSION=$(node -p -e "JSON.parse(require('fs').readFileSync('package.json', 'utf8')).version")
-    - docker tag $REPO $DOCKER_USERNAME/$REPO:$VERSION;
-    - docker push $DOCKER_USERNAME/$REPO:$VERSION;
+    - docker tag $APP_NAME $DOCKER_USERNAME/$APP_NAME:$VERSION;
+    - docker push $DOCKER_USERNAME/$APP_NAME:$VERSION;
     - if [ "$TRAVIS_BRANCH" == "master" ]; then
-        docker tag $REPO $DOCKER_USERNAME/$REPO;
-        docker push $DOCKER_USERNAME/$REPO:latest;
+        docker tag $APP_NAME $DOCKER_USERNAME/$APP_NAME;
+        docker push $DOCKER_USERNAME/$APP_NAME:latest;
       fi
