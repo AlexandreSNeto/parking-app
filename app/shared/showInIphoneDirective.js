@@ -1,5 +1,5 @@
 'use strict';
-angular.module('appServices').directive('showInMobile', ['DetectMobileService', function (DetectMobileService) {
+angular.module('appServices').directive('showInIphone', ['DetectMobileService', function (DetectMobileService) {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
