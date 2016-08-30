@@ -25,9 +25,7 @@ branches:
 
 after_success:
     - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    - docker tag $APP_NAME $DOCKER_USERNAME/$APP_NAME:$VERSION;
     - docker push $DOCKER_USERNAME/$APP_NAME:$VERSION;
     - if [ "$TRAVIS_BRANCH" == "master" ]; then
-        docker tag $APP_NAME $DOCKER_USERNAME/$APP_NAME;
         docker push $DOCKER_USERNAME/$APP_NAME:latest;
       fi
