@@ -24,7 +24,8 @@ var config = {
         './bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',
         './bower_components/angular-bootstrap-show-errors/src/showErrors.min.js',
         './bower_components/angular-ui-mask/dist/mask.min.js',
-        './bower_components/angular-busy/dist/angular-busy.min.js'
+        './bower_components/angular-busy/dist/angular-busy.min.js',
+        './bower_components/angular-md5/angular-md5.min.js'
     ],
 
     vendorcss: [

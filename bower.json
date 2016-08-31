@@ -1,6 +1,6 @@
 {
   "name": "parking-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Aplicativo que consome a API REST para auto gerenciamento de estacionamento empresarial",
   "main": "app/index.html",
   "moduleType": [
@@ -31,7 +31,8 @@
     "angular-bootstrap": "^2.1.0",
     "angular-bootstrap-show-errors": "^2.3.0",
     "angular-ui-mask": "^1.8.7",
-    "angular-busy": "^4.1.3"
+    "angular-busy": "^4.1.3",
+    "angular-md5": "^0.1.10"
   },
   "resolutions": {
     "angular": "~1.5.8",

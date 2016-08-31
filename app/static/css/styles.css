@@ -30,6 +30,9 @@ body {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.container-login {
+  padding-top: 30px;
+}
 
 /* Search */
 .search-table td.center, .search-table th.center {
@@ -45,8 +48,8 @@ body {
 }
 
 /* Help Block */
-.help-block {
-    font-size: 0.8em;
+.helper-gravatar {
+    cursor: pointer;
 }
 
 .uppercase {
