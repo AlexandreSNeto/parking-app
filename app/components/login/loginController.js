@@ -3,7 +3,7 @@ angular.module('appControllers').controller('LoginCtrl', ['$scope', 'AuthLogin',
     function ($scope, AuthLogin, Owner, $httpParamSerializer, $location, $rootScope) {
 
         $scope.entrar = function () {
-            AuthLogin.login($httpParamSerializer($scope.auth), function (data) {
+            $scope.loginPromise = AuthLogin.login($httpParamSerializer($scope.auth), function (data) {
                 Owner.get({}, function (data) {
                     $rootScope.user = {
                         id: data.id,
