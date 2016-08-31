@@ -5,6 +5,7 @@ var app = angular.module('app', [
     'ui.bootstrap.showErrors',
     'ui.mask',
     'cgBusy',
+    'angular-md5',
     'appControllers',
     'appServices'
 ]).config(['$compileProvider', function ($compileProvider) {
