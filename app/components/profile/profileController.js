@@ -1,9 +1,12 @@
 'use strict';
-angular.module('appControllers').controller('ProfileCtrl', ['$scope', 'Owner',
-    function ($scope, Owner) {
+angular.module('appControllers').controller('ProfileCtrl', ['$scope', 'Owner', '$uibModal', 'md5',
+    function ($scope, Owner, $uibModal, md5) {
 
         Owner.get({}, function (data) {
             $scope.owner = data;
+            if (!$scope.owner.gravatar) {
+                $scope.owner.gravatar = md5.createHash($scope.owner.usuario + '@cwi.com.br' || ''); 
+            }
         });
 
         $scope.salvar = function () {
@@ -16,6 +19,15 @@ angular.module('appControllers').controller('ProfileCtrl', ['$scope', 'Owner',
                 success('Perfil atualizado.');
             }, function (failData) {
                 fail('Houve um problema ao atualizar o perfil: ' + failData.data.message);
+            });
+        };
+
+        $scope.openModalGravatar = function () {
+            var modalInstance = $uibModal.open({
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'gravatar.html',
+                controller: 'ModalGravatarCtrl'
             });
         };
 
@@ -35,3 +47,9 @@ angular.module('appControllers').controller('ProfileCtrl', ['$scope', 'Owner',
         };
 
     }]);
+
+angular.module('appControllers').controller('ModalGravatarCtrl', function ($uibModalInstance, $scope) {
+    $scope.cancel = function () {
+        $uibModalInstance.dismiss('cancel');
+    };
+});

@@ -3,7 +3,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-2">
-            <img src="https://s.gravatar.com/avatar/{{owner.gravatar}}?s80" class="pull-right"/>
+            <img src="https://s.gravatar.com/avatar/{{owner.gravatar}}?s80" class="pull-right" />
         </div>
         <div class="col-lg-10">
             <span>{{owner.usuario}}</span>
@@ -25,9 +25,11 @@
 
             <div class="form-group" show-errors>
                 <label for="gravatar" class="col-sm-2 control-label">Hash Gravatar</label>
-                <div class="col-sm-3">
+                <div class="col-sm-4">
+                    <div class="input-group">
                         <input type="text" class="form-control" name="gravatar" id="gravatar" ng-model="owner.gravatar">
-                        <span id="helpBlock" class="help-block">Para descobrir sua hash, acesse http://pt.gravatar.com/site/check/SEU_EMAIL_DO_GRAVATAR</span>
+                        <span class="input-group-addon helper-gravatar" ng-click="openModalGravatar()">?</span>
+                    </div>
                 </div>
             </div>
 
@@ -63,3 +65,26 @@
         </form>
     </div>
 </div>
+
+<script type="text/ng-template" id="gravatar.html">
+    <div class="modal-header">
+        <h3 class="modal-title" id="modal-title">O que é o Gravatar ?</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+        <p>
+            Gravatar é um serviço que permite a utilização de fotos de perfil em diversas aplicações.
+            Nós possuímos suporte ao gravatar. Ao acessar pela primeira vez, o sistema cria uma Hash a partir do seu e-mail da CWI.
+        </p>
+        <p>
+            Caso você não possua uma conta no gravatar ou não possua o e-mail da CWI cadastrado, 
+            acesse: <a href="https://pt.gravatar.com/" target="_blank">https://pt.gravatar.com/</a> e faça os ajustes.
+        </p>
+        <p>
+            Após criar sua conta e inserir uma imagem para um endereço de e-mail, descubra sua Hash acessando: http://pt.gravatar.com/site/check/SEU_EMAIL_DO_GRAVATAR.
+            Caso você tenha escolhido o e-mail da CWI, a sua imagem deve aparecer aqui automaticamente.
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning" type="button" ng-click="cancel()">Fechar</button>
+    </div>
+</script>
