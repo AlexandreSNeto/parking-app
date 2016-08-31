@@ -1,5 +1,5 @@
 {
-	"name": "CWI Software",
+	"name": "Garagem CWI",
 	"icons": [
 		{
 			"src": "\/static\/images\/android-chrome-36x36.png",
@@ -37,6 +37,6 @@
 			"type": "image\/png"
 		}
 	],
-	"theme_color": "#ffffff",
+	"theme_color": "#e7e7e7",
 	"display": "standalone"
 }
