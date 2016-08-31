@@ -43,3 +43,12 @@ body {
 .navbar-brand {
     padding: 5px 5px;
 }
+
+/* Help Block */
+.help-block {
+    font-size: 0.8em;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}

@@ -9,6 +9,12 @@ angular.module('appServices').factory('DetectMobileService', [function () {
         return check;
     }
 
+    instance.isIphone = function () {
+        var check = false;
+        (function (a) { if (/ip(hone|od)/i.test(a)) check = true })(navigator.userAgent || navigator.vendor || window.opera);
+        return check;
+    }
+
     return instance;
 
 }]);

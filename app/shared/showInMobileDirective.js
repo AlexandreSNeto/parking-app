@@ -5,7 +5,7 @@ angular.module('appServices').directive('showInMobile', ['DetectMobileService', 
         link: function (scope, element, attrs) {
             var isMobile = DetectMobileService.isMobile();
             if (!isMobile) {
-                $(element).hide();
+                $(element).remove();
             }
         }
     };
