@@ -1,68 +1,70 @@
 <div ng-include="'components/messages/messages.html'"></div>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-2">
-            <img src="https://s.gravatar.com/avatar/{{owner.gravatar}}?s80" class="pull-right" />
-        </div>
-        <div class="col-lg-10">
-            <span>{{owner.usuario}}</span>
-            <br />
-            <span>Criado em: {{owner.dataCriacao | date: 'dd/MM/yyyy HH:mm'}}</span>
+<div cg-busy="{promise:ownerPromise,message:'Carregando...'}">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <img src="https://s.gravatar.com/avatar/{{owner.gravatar}}?s80" class="pull-right" />
+            </div>
+            <div class="col-lg-10">
+                <span>{{owner.usuario}}</span>
+                <br />
+                <span>Criado em: {{owner.dataCriacao | date: 'dd/MM/yyyy HH:mm'}}</span>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="container-fluid">
-    <div class="row">
-        <form class="form-horizontal" ng-submit="salvar()" name="profileForm">
-            <div class="form-group" show-errors>
-                <label for="name" class="col-sm-2 control-label">Nome *</label>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control" name="nome" id="name" ng-model="owner.nome" ng-required="true" maxlength="128">
-                </div>
-            </div>
-
-            <div class="form-group" show-errors>
-                <label for="gravatar" class="col-sm-2 control-label">Hash Gravatar</label>
-                <div class="col-sm-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control" name="gravatar" id="gravatar" ng-model="owner.gravatar">
-                        <span class="input-group-addon helper-gravatar" ng-click="openModalGravatar()">?</span>
+    <div class="container-fluid">
+        <div class="row">
+            <form class="form-horizontal" ng-submit="salvar()" name="profileForm">
+                <div class="form-group" show-errors>
+                    <label for="name" class="col-sm-2 control-label">Nome *</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" name="nome" id="name" ng-model="owner.nome" ng-required="true" maxlength="128">
                     </div>
                 </div>
-            </div>
 
-            <div class="form-group" show-errors>
-                <label for="celular" class="col-sm-2 control-label">Celular *</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" name="celular" id="celular" ng-model="owner.celular" ui-mask="99 9999 9999?9" ng-required="true">
+                <div class="form-group" show-errors>
+                    <label for="gravatar" class="col-sm-2 control-label">Hash Gravatar</label>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="gravatar" id="gravatar" ng-model="owner.gravatar">
+                            <span class="input-group-addon helper-gravatar" ng-click="openModalGravatar()">?</span>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group" show-errors>
-                <label for="ramal" class="col-sm-2 control-label">Ramal *</label>
-                <div class="col-sm-1">
-                    <input type="text" class="form-control" name="ramal" id="ramal" ng-model="owner.ramal" ui-mask="999" ng-required="true">
+                <div class="form-group" show-errors>
+                    <label for="celular" class="col-sm-2 control-label">Celular *</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" name="celular" id="celular" ng-model="owner.celular" ui-mask="99 9999 9999?9" ng-required="true">
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group" show-errors>
-                <label for="andar" class="col-sm-2 control-label">Andar</label>
-                <div class="col-sm-1">
-                    <input type="text" class="form-control" name="andar" id="andar" ui-mask="9" ng-model="owner.andar">
+                <div class="form-group" show-errors>
+                    <label for="ramal" class="col-sm-2 control-label">Ramal *</label>
+                    <div class="col-sm-1">
+                        <input type="text" class="form-control" name="ramal" id="ramal" ng-model="owner.ramal" ui-mask="999" ng-required="true">
+                    </div>
                 </div>
-            </div>
 
-            <div class="form-group" show-errors>
-                <label for="posicao" class="col-sm-2 control-label">Posição</label>
-                <div class="col-sm-2">
-                    <input type="text" class="form-control" name="posicao" id="posicao" ng-model="owner.posicao" maxlength="16" ng-maxlength="16">
+                <div class="form-group" show-errors>
+                    <label for="andar" class="col-sm-2 control-label">Andar</label>
+                    <div class="col-sm-1">
+                        <input type="text" class="form-control" name="andar" id="andar" ui-mask="9" ng-model="owner.andar">
+                    </div>
                 </div>
-            </div>
 
-            <button type="submit" class="btn btn-primary pull-right">Salvar</button>
-        </form>
+                <div class="form-group" show-errors>
+                    <label for="posicao" class="col-sm-2 control-label">Posição</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" name="posicao" id="posicao" ng-model="owner.posicao" maxlength="16" ng-maxlength="16">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary pull-right">Salvar</button>
+            </form>
+        </div>
     </div>
 </div>
 
@@ -76,7 +78,7 @@
             Nós possuímos suporte ao gravatar. Ao acessar pela primeira vez, o sistema cria uma Hash a partir do seu e-mail da CWI.
         </p>
         <p>
-            Caso você não possua uma conta no gravatar ou não possua o e-mail da CWI cadastrado, 
+            Caso você não possua uma conta no gravatar ou não possua o e-mail da CWI cadastrado,
             acesse: <a href="https://pt.gravatar.com/" target="_blank">https://pt.gravatar.com/</a> e faça os ajustes.
         </p>
         <p>

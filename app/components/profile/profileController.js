@@ -2,10 +2,10 @@
 angular.module('appControllers').controller('ProfileCtrl', ['$scope', 'Owner', '$uibModal', 'md5',
     function ($scope, Owner, $uibModal, md5) {
 
-        Owner.get({}, function (data) {
+        $scope.ownerPromise = Owner.get({}, function (data) {
             $scope.owner = data;
             if (!$scope.owner.gravatar) {
-                $scope.owner.gravatar = md5.createHash($scope.owner.usuario + '@cwi.com.br' || ''); 
+                $scope.owner.gravatar = md5.createHash($scope.owner.usuario + '@cwi.com.br' || '');
             }
         });
 
