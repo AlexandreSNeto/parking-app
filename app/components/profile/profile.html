@@ -37,21 +37,21 @@
                 <div class="form-group" show-errors>
                     <label for="celular" class="col-sm-2 control-label">Celular *</label>
                     <div class="col-sm-2">
-                        <input type="text" class="form-control" name="celular" id="celular" ng-model="owner.celular" ui-mask="99 9999 9999?9" ng-required="true">
+                        <input type="tel" class="form-control" name="celular" id="celular" ng-model="owner.celular" ui-mask="99 9999 9999?9" ng-required="true">
                     </div>
                 </div>
 
                 <div class="form-group" show-errors>
                     <label for="ramal" class="col-sm-2 control-label">Ramal *</label>
                     <div class="col-sm-1">
-                        <input type="text" class="form-control" name="ramal" id="ramal" ng-model="owner.ramal" ui-mask="999" ng-required="true">
+                        <input type="number" class="form-control" name="ramal" id="ramal" ng-model="owner.ramal" ng-required="true" ng-maxlength="3" maxlength="3">
                     </div>
                 </div>
 
                 <div class="form-group" show-errors>
                     <label for="andar" class="col-sm-2 control-label">Andar</label>
                     <div class="col-sm-1">
-                        <input type="text" class="form-control" name="andar" id="andar" ui-mask="9" ng-model="owner.andar">
+                        <input type="number" class="form-control" name="andar" id="andar" ng-model="owner.andar" ng-maxlength="1" maxlength="1">
                     </div>
                 </div>
 
@@ -82,7 +82,7 @@
             acesse: <a href="https://pt.gravatar.com/" target="_blank">https://pt.gravatar.com/</a> e faça os ajustes.
         </p>
         <p>
-            Após criar sua conta e inserir uma imagem para um endereço de e-mail, descubra sua Hash acessando: http://pt.gravatar.com/site/check/SEU_EMAIL_DO_GRAVATAR.
+            Após criar sua conta e inserir uma imagem para um endereço de e-mail, descubra sua Hash acessando: http://pt.gravatar.com/site/check/SEU_EMAIL.
             Caso você tenha escolhido o e-mail da CWI, a sua imagem deve aparecer aqui automaticamente.
         </p>
     </div>
