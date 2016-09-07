@@ -75,7 +75,7 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
         };
 
         var getVehicles = function () {
-            Vehicle.get({ page: $scope.pager.page - 1, size: $scope.pager.size }, function (data) {
+            $scope.vehiclesPromise = Vehicle.get({ page: $scope.pager.page - 1, size: $scope.pager.size }, function (data) {
                 $scope.vehicles = data.content;
                 $scope.pager.totalElements = data.totalElements;
                 $scope.pager.totalPages = data.totalPages;

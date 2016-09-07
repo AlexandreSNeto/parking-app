@@ -1,42 +1,39 @@
 body {
-  background-image: url(../images/textura.png);
+    padding-top: 30px;
+    background-image: url(../images/textura.png);
 }
 /* Angular Bootstrap fix */
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
 
 /* LOGIN */
 .form-login {
-  max-width: 330px;
-  padding: 15px;
-  margin: 0 auto;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
 }
-.form-login-heading {
-    background-image: url(../images/logo_cwi.png);
-    background-size: 180px;
-    height: 80px;
-    width: 180px;
-    margin: 0 auto 25px;
+.form-login img {
+    padding-bottom: 10px;
 }
 .form-login .form-control:focus {
-  z-index: 2;
+    z-index: 2;
 }
 .form-login input[type="text"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 .form-login input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 .container-login {
-  padding-top: 30px;
+    padding-top: 30px;
 }
 
 /* Search */
 .search-table td.center, .search-table th.center {
-   text-align: center;
+    text-align: center;
 }
 
 /* Bootstrap Customizations */
@@ -46,6 +43,10 @@ body {
 .navbar-brand {
     padding: 5px 5px;
 }
+.page-header {
+    padding-bottom: 0px;
+    border-bottom: 2px solid #FBB041;
+}
 
 /* Help Block */
 .helper-gravatar {
@@ -54,4 +55,16 @@ body {
 
 .uppercase {
     text-transform: uppercase;
+}
+
+.gravatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.margin-bottom-sm {
+    margin-bottom: 15px;
 }

@@ -14,7 +14,9 @@ var app = angular.module('app', [
     showErrorsConfigProvider.showSuccess(true);
 }]);
 
-app.run(['$rootScope', '$location', 'AuthCheck', 'Owner', function ($rootScope, $location, AuthCheck, Owner) {
+app.run(['$rootScope', '$location', '$route', 'AuthCheck', 'Owner', function ($rootScope, $location, $route, AuthCheck, Owner) {
+
+    $rootScope.$route = $route;
 
     if (!$rootScope.user || !$rootScope.user.id) {
         Owner.get({}, function (data) {

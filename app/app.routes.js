@@ -10,18 +10,21 @@ angular.module('app').config(['$routeProvider',
       when('/logout', {
         template: ' ',
         controller: 'LogoutCtrl'
-      }).      
+      }).
       when('/', {
         templateUrl: 'components/search/search.html',
-        controller: 'SearchCtrl'
+        controller: 'SearchCtrl',
+        activePage: 'search'
       }).
       when('/profile', {
         templateUrl: 'components/profile/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileCtrl',
+        activePage: 'profile'
       }).
       when('/vehicle', {
         templateUrl: 'components/vehicle/vehicle.html',
-        controller: 'VehicleCtrl'
+        controller: 'VehicleCtrl',
+        activePage: 'vehicle'
       }).
       otherwise({
         redirectTo: '/login'

@@ -14,7 +14,7 @@ O gulp é reponsável por monitorar alterações no código fonte e atualizar a 
 ### Habilitar o gulp watch
     $ gulp
 ### Executar container 
-    $ docker run -d --name parking-app -v path/to/parking-app/docker:/etc/nginx/conf.d/ -v path/to/parking-app/dist:/usr/share/nginx/html --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 nginx
+    $ docker run -d --name parking-app -v path/to/parking-app/nginx:/etc/nginx/conf.d/ -v path/to/parking-app/dist:/usr/share/nginx/html --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 nginx
 
 # Ambiente Produção
 Seguir os passos para executar a [parking-api](https://github.com/gustajz/parking-api).
