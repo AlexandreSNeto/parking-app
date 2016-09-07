@@ -28,6 +28,7 @@ after_success:
         docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
         docker push $DOCKER_USERNAME/$APP_NAME:$VERSION;
         if [ "$TRAVIS_BRANCH" == "master" ]; then
+            docker tag $DOCKER_USERNAME/$APP_NAME:$VERSION $DOCKER_USERNAME/$APP_NAME:latest;
             docker push $DOCKER_USERNAME/$APP_NAME:latest;
         fi
       fi
