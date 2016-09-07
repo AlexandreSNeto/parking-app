@@ -44,6 +44,7 @@ body {
     padding: 5px 5px;
 }
 .page-header {
+    padding-bottom: 0px;
     border-bottom: 2px solid #FBB041;
 }
 
@@ -62,4 +63,8 @@ body {
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto;
+}
+
+.margin-bottom-sm {
+    margin-bottom: 15px;
 }
