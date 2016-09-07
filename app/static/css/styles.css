@@ -1,5 +1,5 @@
 body {
-    padding-top: 70px;
+    padding-top: 30px;
     background-image: url(../images/textura.png);
 }
 /* Angular Bootstrap fix */
@@ -42,6 +42,9 @@ body {
 }
 .navbar-brand {
     padding: 5px 5px;
+}
+.page-header {
+    border-bottom: 2px solid #FBB041;
 }
 
 /* Help Block */
