@@ -2,6 +2,29 @@
 angular.module('appControllers').controller('ProfileCtrl', ['$scope', 'Owner', '$uibModal', 'md5',
     function ($scope, Owner, $uibModal, md5) {
 
+        $scope.floors = [
+            {
+                id: 1,
+                description: '1°'
+            },
+            {
+                id: 2,
+                description: '2°'
+            },
+            {
+                id: 3,
+                description: '3°'
+            },
+            {
+                id: 4,
+                description: '4°'
+            },
+            {
+                id: 5,
+                description: '5°'
+            },
+        ];
+
         $scope.ownerPromise = Owner.get({}, function (data) {
             $scope.owner = data;
             if (!$scope.owner.gravatar) {

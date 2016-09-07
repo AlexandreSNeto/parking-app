@@ -4,7 +4,9 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-2">
-                <img src="https://s.gravatar.com/avatar/{{owner.gravatar}}?s80" class="pull-right" />
+                <div class="gravatar pull-right">
+                    <img src="https://s.gravatar.com/avatar/{{owner.gravatar}}?s80" />
+                </div>
             </div>
             <div class="col-lg-10">
                 <span>{{owner.usuario}}</span>
@@ -51,7 +53,8 @@
                 <div class="form-group" show-errors>
                     <label for="andar" class="col-sm-2 control-label">Andar</label>
                     <div class="col-sm-1">
-                        <input type="number" class="form-control" name="andar" id="andar" ng-model="owner.andar" ng-maxlength="1" maxlength="1">
+                        <select class="form-control" name="andar" ng-model="owner.andar" ng-options="floor.id as floor.description for floor in floors">
+                        </select>
                     </div>
                 </div>
 
