@@ -3,7 +3,8 @@
     <div ng-include="'components/messages/messages.html'"></div>
     <form class="form-login" ng-submit="entrar()">
         <div cg-busy="{promise:loginPromise,message:'Carregando...'}">
-            <h2 class="form-login-heading"></h2>
+
+            <img src="static/images/logo_parking_lg.png" class="img-responsive" alt="Image" />
 
             <label for="inputUsername" class="sr-only">Username</label>
             <input type="text" id="inputUsername" class="form-control" name="username" ng-model="auth.username" placeholder="Usuário" required autofocus>
