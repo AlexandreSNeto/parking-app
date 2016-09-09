@@ -2,13 +2,15 @@
   <h3>Procurar Veículo</h3>
 </div>
 
-<form class="form-inline">
-    <div class="input-group">
-      <div class="input-group-addon"><span class="fa fa-search"></span></div>
-      <input type="text" class="form-control uppercase" id="search" placeholder="Placa" maxlength="7" ng-model="licensePlate" autofocus autocomplete="off">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control input-lg uppercase" id="search" placeholder="Placa" maxlength="7" ng-model="licensePlate" autofocus autocomplete="off">
+            <div class="input-group-addon"><span class="fa fa-search"></span></div>
+        </div>
+        <span id="helpBlock" class="help-block">Informe pelo menos os 2 primeiros dígitos da placa.</span>
     </div>
-    <span id="helpBlock" class="help-block">Informe pelo menos os 2 primeiros dígitos da placa</span>
-</form>
+</div>
 
 <div class="searchContainer" ng-show="licensePlate.length >= 2" cg-busy="{promise:searchPromise,message:'Carregando...'}">
 
