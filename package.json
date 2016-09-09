@@ -23,6 +23,7 @@
     "gulp-docker": "0.0.12",
     "gulp-htmlmin": "^2.0.0",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "gulp-imagemin": "^3.0.3"
   }
 }
