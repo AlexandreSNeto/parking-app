@@ -66,7 +66,11 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
             }
 
             Vehicle.save($scope.vehicle, function (data) {
-                success("Veículo adicionado.");
+                if ($scope.vehicle.id) {
+                    success("Veículo atualizado.");
+                } else {
+                    success("Veículo adicionado.");
+                }
                 $scope.toggleForm();
                 getVehicles();
             }, function (failData) {
