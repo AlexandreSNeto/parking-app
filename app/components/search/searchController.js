@@ -21,7 +21,7 @@ angular.module('appControllers').controller('SearchCtrl', ['$scope', 'SearchVehi
         $scope.$watch('licensePlate', function (value) {
             var licensePlate = $scope.licensePlate;
             $timeout.cancel(timeoutPromise);
-            if ($scope.licensePlate != '' && $scope.licensePlate.length >= 2) {
+            if ($scope.licensePlate !== '' && $scope.licensePlate.length >= 2) {
                 $scope.pager.page = 1;
                 timeoutPromise = $timeout(function () {
                     search(licensePlate);

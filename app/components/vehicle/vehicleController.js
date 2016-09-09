@@ -101,7 +101,7 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
             }
             $scope.vehicle = angular.copy(vehicle);
 
-            if ($.inArray($scope.vehicle.cor, $scope.colors) == -1) {
+            if ($.inArray($scope.vehicle.cor, $scope.colors) === -1) {
                 $scope.inputedColor = $scope.vehicle.cor;
                 $scope.vehicle.cor = $scope.otherColor;
             }
