@@ -5,7 +5,7 @@ angular.module('appControllers').controller('SearchCtrl', ['$scope', 'SearchVehi
         // Pagination
         $scope.pager = {
             totalElements: 0,
-            totalPages: 0,
+            totalPages: -1,
             pagesToShow: 5,
             size: 10,
             page: 1

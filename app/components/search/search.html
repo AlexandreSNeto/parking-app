@@ -10,9 +10,9 @@
     <span id="helpBlock" class="help-block">Informe pelo menos os 2 primeiros dígitos da placa</span>
 </form>
 
-<div class="searchContainer" cg-busy="{promise:searchPromise,message:'Carregando...'}">
+<div class="searchContainer" ng-show="licensePlate.length >= 2" cg-busy="{promise:searchPromise,message:'Carregando...'}">
 
-    <div class="alert alert-info text-center" ng-show="licensePlate.length >= 2 && veiculos.length === 0">
+    <div class="alert alert-info text-center" ng-show="pager.totalPages === 0">
         Nenhum veículo localizado para a placa informada.
     </div>
 
