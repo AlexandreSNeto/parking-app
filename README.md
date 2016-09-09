@@ -1,13 +1,21 @@
+### Application
 [![Build Status](https://travis-ci.org/AlexandreSNeto/parking-app.svg?branch=master)](https://travis-ci.org/AlexandreSNeto/parking-app)
+[![App version](https://badge.fury.io/gh/AlexandreSNeto%2Fparking-app.svg)](https://badge.fury.io/gh/AlexandreSNeto%2Fparking-app)
+### Docker Image 
 [![Docker Pulls](https://img.shields.io/docker/pulls/alexandresneto/parking-app.svg?maxAge=2592000)](https://hub.docker.com/r/alexandresneto/parking-app/)
-# Parking APP 
+[![Size and Layers](https://images.microbadger.com/badges/image/alexandresneto/parking-app.svg)](https://microbadger.com/images/alexandresneto/parking-app)
+[![Docker Image Latest Version](https://images.microbadger.com/badges/version/alexandresneto/parking-app.svg)](http://microbadger.com/images/alexandresneto/parking-app)
+
+---
+
+## Parking APP 
 
 Aplicação que consome a [parking-api](https://github.com/gustajz/parking-api).
 Seu propósito é proporcionar o auto gerenciamento de um estacionamento corporativo.
 
 **ATENÇÃO**: É necessário uma versão do [parking-api](https://github.com/gustajz/parking-api) em execução para que esta aplicação seja executada.
 
-# Ambiente Desenvolvimento
+## Ambiente Desenvolvimento
 O gulp é reponsável por monitorar alterações no código fonte e atualizar a pasta `dist`, que está mapeada no container do nginx. Dessa forma, qualquer alteração em código será refletida na pasta `dist` e consequentemente na pasta `html` do nginx.
 ### Instalar dependências
     $ npm install
@@ -16,7 +24,7 @@ O gulp é reponsável por monitorar alterações no código fonte e atualizar a 
 ### Executar container 
     $ docker run -d --name parking-app -v path/to/parking-app/nginx:/etc/nginx/conf.d/ -v path/to/parking-app/dist:/usr/share/nginx/html --add-host="api:CHANGE_TO_API_HOST" -p 8080:80 nginx
 
-# Ambiente Produção
+## Ambiente Produção
 Seguir os passos para executar a [parking-api](https://github.com/gustajz/parking-api).
 Executar um container do parking-app.
 
