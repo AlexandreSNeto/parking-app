@@ -6,6 +6,7 @@ var rename = require('gulp-rename');
 var concat = require('gulp-concat');
 var clean = require('gulp-clean');
 var htmlmin = require('gulp-htmlmin');
+var imagemin = require('gulp-imagemin');
 
 var config = {
 
@@ -69,6 +70,7 @@ gulp.task('clean', function () {
 // Copia o conteúdo estático: css e imagens'
 gulp.task('static', ['clean'], function () {
     return gulp.src(config.static)
+        .pipe(imagemin())
         .pipe(gulp.dest(config.dist.dir + '/static'));
 });
 
