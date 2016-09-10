@@ -26,6 +26,10 @@
                     <a hide-in-mobile href="#/vehicle"><i class="fa fa-car"></i> Meus Veículos</a>
                     <a show-in-mobile href="#/vehicle" data-toggle="collapse" data-target="#itens-menu">Meus Veículos</a>
                 </li>
+                <li ng-class="{active: $route.current.activePage === 'about'}">
+                    <a hide-in-mobile href="#/about"><i class="fa fa-question"></i> Sobre</a>
+                    <a show-in-mobile href="#/about" data-toggle="collapse" data-target="#itens-menu">Sobre</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
