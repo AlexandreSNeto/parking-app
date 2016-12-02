@@ -1,6 +1,6 @@
 {
   "name": "parking-app",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Aplicativo que consome a API REST para auto gerenciamento de estacionamento empresarial",
   "scripts": {
     "postinstall": "bower install --allow-root && gulp build",
@@ -23,6 +23,7 @@
     "gulp-docker": "0.0.12",
     "gulp-htmlmin": "^2.0.0",
     "gulp-rename": "^1.2.2",
-    "gulp-uglify": "^2.0.0"
+    "gulp-uglify": "^2.0.0",
+    "gulp-imagemin": "^3.0.3"
   }
 }

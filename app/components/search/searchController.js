@@ -5,7 +5,7 @@ angular.module('appControllers').controller('SearchCtrl', ['$scope', 'SearchVehi
         // Pagination
         $scope.pager = {
             totalElements: 0,
-            totalPages: 0,
+            totalPages: -1,
             pagesToShow: 5,
             size: 10,
             page: 1
@@ -21,7 +21,7 @@ angular.module('appControllers').controller('SearchCtrl', ['$scope', 'SearchVehi
         $scope.$watch('licensePlate', function (value) {
             var licensePlate = $scope.licensePlate;
             $timeout.cancel(timeoutPromise);
-            if ($scope.licensePlate != '' && $scope.licensePlate.length >= 2) {
+            if ($scope.licensePlate !== '' && $scope.licensePlate.length >= 2) {
                 $scope.pager.page = 1;
                 timeoutPromise = $timeout(function () {
                     search(licensePlate);

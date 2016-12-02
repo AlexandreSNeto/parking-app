@@ -3,32 +3,17 @@ angular.module('appControllers').controller('ProfileCtrl', ['$scope', 'Owner', '
     function ($scope, Owner, $uibModal, md5) {
 
         $scope.floors = [
-            {
-                id: 1,
-                description: '1°'
-            },
-            {
-                id: 2,
-                description: '2°'
-            },
-            {
-                id: 3,
-                description: '3°'
-            },
-            {
-                id: 4,
-                description: '4°'
-            },
-            {
-                id: 5,
-                description: '5°'
-            },
+            { id: 1, description: '1°' },
+            { id: 2, description: '2°' },
+            { id: 3, description: '3°' },
+            { id: 4, description: '4°' },
+            { id: 5, description: '5°' }
         ];
 
         $scope.ownerPromise = Owner.get({}, function (data) {
             $scope.owner = data;
             if (!$scope.owner.gravatar) {
-                $scope.owner.gravatar = md5.createHash($scope.owner.usuario + '@cwi.com.br' || '');
+                $scope.owner.gravatar = md5.createHash($scope.owner.usuario.toLowerCase() + '@cwi.com.br' || '');
             }
         });
 

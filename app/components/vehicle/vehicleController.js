@@ -66,7 +66,11 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
             }
 
             Vehicle.save($scope.vehicle, function (data) {
-                success("Veículo adicionado.");
+                if ($scope.vehicle.id) {
+                    success("Veículo atualizado.");
+                } else {
+                    success("Veículo adicionado.");
+                }
                 $scope.toggleForm();
                 getVehicles();
             }, function (failData) {
@@ -97,7 +101,7 @@ angular.module('appControllers').controller('VehicleCtrl', ['$scope', '$rootScop
             }
             $scope.vehicle = angular.copy(vehicle);
 
-            if ($.inArray($scope.vehicle.cor, $scope.colors) == -1) {
+            if ($.inArray($scope.vehicle.cor, $scope.colors) === -1) {
                 $scope.inputedColor = $scope.vehicle.cor;
                 $scope.vehicle.cor = $scope.otherColor;
             }

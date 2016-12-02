@@ -15,21 +15,30 @@
         <div class="collapse navbar-collapse" id="itens-menu">
             <ul class="nav navbar-nav">
                 <li ng-class="{active: $route.current.activePage === 'search'}">
-                    <a hide-in-mobile href="#/">Procurar Veículo</a>
+                    <a hide-in-mobile href="#/"><i class="fa fa-search"></i> Procurar Veículo</a>
                     <a show-in-mobile href="#/" data-toggle="collapse" data-target="#itens-menu">Procurar Veículo</a>
                 </li>
                 <li ng-class="{active: $route.current.activePage === 'profile'}">
-                    <a hide-in-mobile href="#/profile">Meu Perfil</a>
+                    <a hide-in-mobile href="#/profile"><i class="fa fa-user"></i> Meu Perfil</a>
                     <a show-in-mobile  href="#/profile" data-toggle="collapse" data-target="#itens-menu">Meu Perfil</a>
                 </li>
                 <li ng-class="{active: $route.current.activePage === 'vehicle'}">
-                    <a hide-in-mobile href="#/vehicle">Meus Veículos</a>
+                    <a hide-in-mobile href="#/vehicle"><i class="fa fa-car"></i> Meus Veículos</a>
                     <a show-in-mobile href="#/vehicle" data-toggle="collapse" data-target="#itens-menu">Meus Veículos</a>
+                </li>
+                <li ng-class="{active: $route.current.activePage === 'about'}">
+                    <a hide-in-mobile href="#/about"><i class="fa fa-question"></i> Sobre</a>
+                    <a show-in-mobile href="#/about" data-toggle="collapse" data-target="#itens-menu">Sobre</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a hide-in-mobile href="#/profile">{{user.name}}</a>
+                    <a hide-in-mobile href="#/profile" class="navbar-profile">
+                        <div class="gravatar gravatar-navbar pull-left">
+                            <img src="https://s.gravatar.com/avatar/{{user.avatar}}?s=25" />
+                        </div>
+                         {{user.name}}
+                    </a>
                     <a show-in-mobile href="#/profile" data-toggle="collapse" data-target="#itens-menu">{{user.name}}</a>
                 </li>
                 <li><a href="#/logout">Sair</a></li>

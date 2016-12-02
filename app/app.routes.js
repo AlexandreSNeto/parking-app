@@ -26,6 +26,10 @@ angular.module('app').config(['$routeProvider',
         controller: 'VehicleCtrl',
         activePage: 'vehicle'
       }).
+      when('/about', {
+        templateUrl: 'components/about/about.html',
+        activePage: 'about'
+      }).
       otherwise({
         redirectTo: '/login'
       });

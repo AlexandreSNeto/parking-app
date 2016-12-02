@@ -31,7 +31,7 @@ app.run(['$rootScope', '$location', '$route', 'AuthCheck', 'Owner', function ($r
     }
 
     $rootScope.$on('$locationChangeStart', function (event, next, current) {
-        var restrictedPage = $location.path() != '/login';
+        var restrictedPage = $location.path() !== '/login';
         if (restrictedPage) {
             AuthCheck.get({}, function (success) { }, function (fail) {
                 $rootScope.user = {};

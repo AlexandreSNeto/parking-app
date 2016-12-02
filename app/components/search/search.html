@@ -2,17 +2,19 @@
   <h3>Procurar Veículo</h3>
 </div>
 
-<form class="form-inline">
-    <div class="input-group">
-      <div class="input-group-addon"><span class="fa fa-search"></span></div>
-      <input type="text" class="form-control uppercase" id="search" placeholder="Placa" maxlength="7" ng-model="licensePlate" autofocus autocomplete="off">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="input-group">
+            <input type="text" class="form-control uppercase" id="search" placeholder="Placa" maxlength="7" ng-model="licensePlate" autofocus autocomplete="off">
+            <div class="input-group-addon"><span class="fa fa-search"></span></div>
+        </div>
+        <span id="helpBlock" class="help-block">Informe pelo menos os 2 primeiros dígitos da placa.</span>
     </div>
-    <span id="helpBlock" class="help-block">Informe pelo menos os 2 primeiros dígitos da placa</span>
-</form>
+</div>
 
-<div class="searchContainer" cg-busy="{promise:searchPromise,message:'Carregando...'}">
+<div class="searchContainer" ng-show="licensePlate.length >= 2" cg-busy="{promise:searchPromise,message:'Carregando...'}">
 
-    <div class="alert alert-info text-center" ng-show="licensePlate.length >= 2 && veiculos.length === 0">
+    <div class="alert alert-info text-center" ng-show="pager.totalPages === 0">
         Nenhum veículo localizado para a placa informada.
     </div>
 
@@ -30,10 +32,12 @@
             {{veiculo.placa}}
             <br />
             {{veiculo.modelo}} {{veiculo.cor}}
+            <br />
+            <span ng-if="veiculo.proprietario.numeroVaga"><strong>Vaga: </strong>{{veiculo.proprietario.numeroVaga}}</span>
         </td>
         <td class="center">
-            <div class="gravatar">
-                <img src="https://s.gravatar.com/avatar/{{veiculo.proprietario.gravatar}}?d=mm" />
+            <div class="gravatar gravatar-fixed-center">
+                <img src="https://s.gravatar.com/avatar/{{veiculo.proprietario.gravatar}}?s=80&d=mm" />
             </div>
             {{veiculo.proprietario.nome}}
             <br />

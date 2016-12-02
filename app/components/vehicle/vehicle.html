@@ -37,9 +37,13 @@
     </div>
 </div>
 
-<button type="button" class="btn btn-primary" ng-click="toggleForm()" ng-hide="showFormPanel">
+<button show-in-mobile type="button" class="btn btn-primary btn-block margin-bottom-sm" ng-click="toggleForm()" ng-hide="showFormPanel">
   <span class="fa fa-plus-circle"></span>
-  <span hide-in-mobile>Adicionar</span>
+  <span>Adicionar</span>
+</button>
+<button hide-in-mobile type="button" class="btn btn-primary margin-bottom-sm" ng-click="toggleForm()" ng-hide="showFormPanel">
+  <span class="fa fa-plus-circle"></span>
+  <span>Adicionar</span>
 </button>
 
 <table class="table table-striped table-hover" cg-busy="{promise:vehiclesPromise,message:'Carregando...'}">

@@ -58,13 +58,31 @@ body {
 }
 
 .gravatar {
-    width: 80px;
-    height: 80px;
     border-radius: 50%;
     overflow: hidden;
+}
+.gravatar-fixed-center {
+    width: 80px;
+    height: 80px;
     margin: 0 auto;
+}
+.gravatar-navbar {
+    margin-right: 5px;
+    margin-top: -2px;
+}
+.gravatar-profile {
+    width: 60px;
+    height: 60px;
 }
 
 .margin-bottom-sm {
     margin-bottom: 15px;
+}
+
+#itens-menu > ul > li > a > i {
+    margin-right: 5px;
+}
+
+.navbar-profile {
+    margin-left: 5px;
 }
