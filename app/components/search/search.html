@@ -32,6 +32,8 @@
             {{veiculo.placa}}
             <br />
             {{veiculo.modelo}} {{veiculo.cor}}
+            <br />
+            <span ng-if="veiculo.proprietario.numeroVaga"><strong>Vaga: </strong>{{veiculo.proprietario.numeroVaga}}</span>
         </td>
         <td class="center">
             <div class="gravatar gravatar-fixed-center">
