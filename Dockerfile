@@ -1,5 +1,5 @@
 FROM nginx
-MAINTAINER Alexandre Silveira Neto <alexandresilveira@cwi.com.br>
+LABEL maintainer="Alexandre Silveira Neto <alexandresilveira@cwi.com.br>"
 
 ENV TZ America/Sao_Paulo
 
