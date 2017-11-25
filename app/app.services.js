@@ -40,3 +40,9 @@ appServices.factory('Owner', ['$resource',
   function($resource){
     return $resource('/api/proprietario', {});
   }]);
+
+  appServices.factory('CEP', ['$resource',
+  function($resource){
+    return $resource('http://cep.republicavirtual.com.br/web_cep.php?cep=:cep&formato=jsonp', {cep: 'cep'});
+  }]);
+
