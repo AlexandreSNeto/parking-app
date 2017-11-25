@@ -64,7 +64,7 @@ var config = {
 };
 
 gulp.task('clean', function () {
-    return gulp.src(config.dist.dir).pipe(clean({ force: true }));
+    return gulp.src(config.dist.dir + "/*").pipe(clean({ force: true }));
 });
 
 // Copia o conteúdo estático: css e imagens'
