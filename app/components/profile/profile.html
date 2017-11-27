@@ -35,7 +35,7 @@
                     <div class="col-sm-4">
                         <div class="input-group">
                             <input type="text" class="form-control" name="gravatar" id="gravatar" ng-model="owner.gravatar">
-                            <span class="input-group-addon helper-gravatar" ng-click="openModalGravatar()">?</span>
+                            <span class="input-group-addon helper" ng-click="openModalGravatar()">?</span>
                         </div>
                     </div>
                 </div>
@@ -50,21 +50,24 @@
                 <div class="form-group" show-errors>
                     <label for="cep" class="col-sm-2 control-label">CEP</label>
                     <div class="col-sm-2">
-                        <input type="tel" class="form-control" name="cep" id="cep" ng-model="owner.cep" ui-mask="99999-999" ng-blur="buscarEndereco()">
+                        <input type="tel" class="form-control" name="cep" id="cep" ng-model="owner.cep" ui-mask="99999-999" ng-blur="buscarEndereco()"
+                            uib-tooltip="Usado somente para buscar seu endereço, não guardaremos essa informação."
+                            tooltip-trigger="'focus'"
+                            tooltip-popup-delay='300' />
                     </div>
                 </div>
 
                 <div class="form-group" show-errors>
                     <label for="cidade" class="col-sm-2 control-label">Cidade</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" name="cidade" id="cidade" ng-model="owner.cidade" ng-disabled="disableEndereco" maxlength="16" ng-maxlength="16">
+                        <input type="text" class="form-control" name="cidade" id="cidade" ng-model="owner.cidade" ng-disabled="disableCidade" maxlength="16" ng-maxlength="16">
                     </div>
                 </div>
 
                 <div class="form-group" show-errors>
                     <label for="bairro" class="col-sm-2 control-label">Bairro</label>
                     <div class="col-sm-3">
-                        <input type="text" class="form-control" name="bairro" id="bairro" ng-model="owner.bairro" ng-disabled="disableEndereco" maxlength="16" ng-maxlength="16">
+                        <input type="text" class="form-control" name="bairro" id="bairro" ng-model="owner.bairro" ng-disabled="disableBairro" maxlength="16" ng-maxlength="16">
                     </div>
                 </div>
 
