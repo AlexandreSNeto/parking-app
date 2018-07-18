@@ -30,6 +30,10 @@ angular.module('app').config(['$routeProvider',
         templateUrl: 'components/about/about.html',
         activePage: 'about'
       }).
+      when('/map', {
+        templateUrl: 'components/map/map.html',
+        activePage: 'map'
+      }).
       otherwise({
         redirectTo: '/login'
       });
